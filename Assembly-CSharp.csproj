@@ -56,34 +56,36 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Low Poly Fruits\resources\fruits_tester.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SimpleImpact.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleArticulationBody.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\DissembleWithDistance.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_GraspEditor.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ToggleLight.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_Highlighter.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_PostAnimator.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_GraspEditor.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnPushEvents.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_MouseHand.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
+    <Compile Include="Assets\Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SimpleImpact.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\DissembleWithDistance.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ManageContainerObject.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandStatusDebugger.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleArticulationBody.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleVGArticulation.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_LeapHand.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityInteractionHand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_MouseHand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ManageContainerObject.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleVGArticulation.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandStatusDebugger.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ToggleLight.cs" />
+    <Compile Include="Assets\Low Poly Fruits\resources\fruits_tester.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_PostAnimator.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllerManager.cs" />
-    <Compile Include="Assets\Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
+    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
+    <Compile Include="Assets\Scripts\Hand.cs" />
+    <Compile Include="Assets\Scripts\HandControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.xml" />
@@ -351,11 +353,11 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="virtualgrasp.CSharp.Unity.NET3.5">
       <HintPath>Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Unity\2021.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
