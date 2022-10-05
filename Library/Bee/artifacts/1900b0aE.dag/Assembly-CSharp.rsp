@@ -378,6 +378,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/Low Poly Fruits/resources/fruits_tester.cs"
+"Assets/Scripts/Axe.cs"
 "Assets/Scripts/DummyBehavior.cs"
 "Assets/Scripts/Hand.cs"
 "Assets/Scripts/HandControl.cs"

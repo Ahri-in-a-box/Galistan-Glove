@@ -86,6 +86,7 @@
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\Scripts\HandControl.cs" />
+    <Compile Include="Assets\Scripts\Axe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.xml" />
