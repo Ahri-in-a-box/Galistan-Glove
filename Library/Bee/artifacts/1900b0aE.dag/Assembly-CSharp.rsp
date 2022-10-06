@@ -382,6 +382,7 @@
 "Assets/Scripts/DummyBehavior.cs"
 "Assets/Scripts/Hand.cs"
 "Assets/Scripts/HandControl.cs"
+"Assets/Scripts/Tree.cs"
 "Assets/ThirdParty/VirtualGrasp/Scenes/onboarding/Scripts/AssembleArticulationBody.cs"
 "Assets/ThirdParty/VirtualGrasp/Scenes/onboarding/Scripts/AssembleVGArticulation.cs"
 "Assets/ThirdParty/VirtualGrasp/Scenes/onboarding/Scripts/ChangeSelectionWeight.cs"
