@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329344064895566563}
   m_Layer: 0
   m_Name: enchantedforest_bench
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

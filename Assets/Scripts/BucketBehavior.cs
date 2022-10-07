@@ -12,19 +12,29 @@ public class BucketBehavior : MonoBehaviour
     void Start()
     {
         //text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        text.text = "0.0 g";
+        text.text = "0.0 Kg";
     }
 
     // Update is called once per frame
     void Update()
     {
-        //text.SetText(CalculateWeight().ToString() + " g");
+        text.SetText(GetMass().ToString() + " Kg");
     }
 
-  
-
-    private float CalculateWeight()
+    private void OnTriggerEnter(Collider other)
     {
-        return 0.0f;
+        if(other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment")
+            mass += other.GetComponent<Rigidbody>().mass;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment")
+            mass -= other.GetComponent<Rigidbody>().mass;
+    }
+
+    public float GetMass()
+    {
+        return mass;
     }
 }
