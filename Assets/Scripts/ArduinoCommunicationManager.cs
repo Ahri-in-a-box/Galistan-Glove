@@ -1,14 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor.Animations;
-using System.Threading;
+﻿using UnityEngine;
 using System.IO.Ports;
+using System;
 
 public class ArduinoCommunicationManager : MonoBehaviour
 {
     private static ArduinoCommunicationManager instance;
-    private static SerialPort arduino = new SerialPort("COMX", 9600);
+    private static readonly SerialPort arduino = new("COM3", 115200);
+    private static byte[] data = new byte[512];
+
+    [SerializeField, Range(0, 3000)]
+    private float m_DataToSend = 0x0123;
+    private float lastSend = -1;
 
     private void Awake()
     {
@@ -17,34 +19,20 @@ public class ArduinoCommunicationManager : MonoBehaviour
 
         instance = this;
         arduino.Open();
+        data[0] = 0x42;
+        data[1] = 0x69;
     }
 
-    private static string SerializeData(object gravityCenter = null, object weight = null)
+    private void FixedUpdate()
     {
-        string res = "{";
-        if (weight is not null)
-            res += "weight:" + ((float)weight).ToString() + ";";
-        if (gravityCenter is not null)
-        {
-            Vector3 gc = (Vector3)gravityCenter;
-            res += "gravityCenter:" + gc.x + "," + gc.y + "," + gc.z + ";";
-        }
-        res += "}";
-        return res;
+        SendWeight(m_DataToSend / 1000);
     }
 
     public static void SendWeight(float weight)
     {
-        arduino.Write(SerializeData(weight: weight));
-    }
-
-    public static void SendGravityCenter(Vector3 gravityCenter)
-    {
-        arduino.Write(SerializeData(gravityCenter));
-    }
-
-    public static void SendGravityAndWeight(Vector3 gravityCenter, float weight)
-    {
-        arduino.Write(SerializeData(gravityCenter, weight));
+        ushort d = (ushort)(weight * 1000);
+        data[2] = (byte)(d & 0xFF);
+        data[3] = (byte)(d >> 8);
+        arduino.Write(data, 0, 4);
     }
 }
