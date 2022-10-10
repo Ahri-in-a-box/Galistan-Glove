@@ -90,6 +90,8 @@
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
     <Compile Include="Assets\Scripts\Axe.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
+    <Compile Include="Assets\Scripts\UserInterfaceManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

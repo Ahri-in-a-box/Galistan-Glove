@@ -49,28 +49,6 @@ public class BucketBehavior : MonoBehaviour
         }
     }
 
-    public void OnSelectEntered()
-    {
-        foreach(GameObject obj in objects)
-        {
-            obj.GetComponent<Rigidbody>().isKinematic = true;
-            obj.GetComponent<Rigidbody>().useGravity = false;
-        }
- 
-        isChanged = true;
-        print("Activé");
-    }
-
-    public void OnSelectExited()
-    {
-        foreach (GameObject obj in objects)
-        {
-            obj.GetComponent<Rigidbody>().isKinematic = false;
-            obj.GetComponent<Rigidbody>().useGravity = true;
-        }
-        print("Désactivé");
-    }
-
     public decimal GetMass()
     {
         return mass;
