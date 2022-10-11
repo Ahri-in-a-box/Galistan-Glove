@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_Highlighter.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_GraspEditor.cs" />
@@ -63,10 +64,11 @@
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_MouseHand.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
-    <Compile Include="Assets\Scripts\Tree.cs" />
+    <Compile Include="Assets\Scripts\TreeBehavior.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
     <Compile Include="Assets\Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\Scripts\UserInterfaceManager.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
     <Compile Include="Assets\Scripts\Apples.cs" />
@@ -90,8 +92,7 @@
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
     <Compile Include="Assets\Scripts\Axe.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
-    <Compile Include="Assets\Scripts\UserInterfaceManager.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\BubbleBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
