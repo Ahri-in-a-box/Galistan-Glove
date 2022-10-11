@@ -31,7 +31,8 @@ public class BucketBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment")
+        //if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment")
+        if (other.gameObject.tag == "Apple")
         {
             mass += (decimal)other.GetComponent<Rigidbody>().mass;
             other.transform.SetParent(transform);
@@ -41,7 +42,8 @@ public class BucketBehavior : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment")
+        //if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment")
+        if (other.gameObject.tag == "Apple")
         {
             mass -= (decimal)other.GetComponent<Rigidbody>().mass;
             other.transform.SetParent(null);
