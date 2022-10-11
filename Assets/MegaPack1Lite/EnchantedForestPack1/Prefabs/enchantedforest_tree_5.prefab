@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 64088773439655870}
   m_Layer: 0
   m_Name: Icosphere.012
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 64034795818926520}
   m_Layer: 0
   m_Name: Cylinder.018
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

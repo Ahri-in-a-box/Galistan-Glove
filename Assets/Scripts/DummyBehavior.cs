@@ -16,5 +16,8 @@ public class DummyBehavior : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         anim.Play("pushed", 0, 0.0f);
+
+        if (GameManager.Instance.GetGameState() == 0)
+            GameManager.Instance.SetGameState(1);
     }
 }
