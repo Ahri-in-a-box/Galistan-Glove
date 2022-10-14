@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4874954804323392333}
   m_Layer: 0
   m_Name: Anchor
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 3195465602553356506}
   m_Layer: 0
   m_Name: bucket
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

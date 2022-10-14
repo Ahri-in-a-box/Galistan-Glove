@@ -58,12 +58,12 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == 1 && isActive == false)
         {
-            print("lancement de la quête");
+            //print("lancement de la quête");
             Quest1();
         }
         else if(gameState == 1 && isActive == true)
         {
-            print("en cours de la 1ere quête");
+            //print("en cours de la 1ere quête");
             
             if(isQuest1Finished())
             {
@@ -79,13 +79,13 @@ public class GameManager : MonoBehaviour
             //Si le joueur s'appoche à 3 mètres du mannequin
             if(isPlayer3m())
             {
-                print("lancement quête 2");
+                //print("lancement quête 2");
                 Quest2();
             }
         }
         else if(gameState == 2 && isActive == true)
         {
-            print("en cours de la 2e quête");
+            //print("en cours de la 2e quête");
 
             if(isQuest2Finished())
             {
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
             //Si le joueur s'appoche à 3 mètres du mannequin
             if(isPlayer3m())
             {
-                print("fin du jeu");
+                //print("fin du jeu");
                 bubbleBackground.gameObject.SetActive(true);
                 bubble.text = "Merci d'avoir joué !";
                 hints.text = "";
@@ -168,9 +168,9 @@ public class GameManager : MonoBehaviour
         bubble.text = "Bien joué ! Maintenant, puisque tu es là, pourrais-tu m'aider ?" +
             " Je dois faire de la compote pour mes neveux. Peux-tu aller me cueillir 1Kg de pommes ?" +
             " Tu trouveras un seau à côté de moi pour ramasser des pommes. Tu pourras les verser directement" +
-            " dans le seau avec le poids indiqué dessus.";
+            " dans le seau avec le poids indiqué dessus, dans le verger.";
 
-        hints.text = "Ramassez 1Kg de pommes. Le seau dans le jardin vous donnera le poids total de pommes ramassées.";
+        hints.text = "Ramassez 1Kg de pommes. Le seau dans le verger vous donnera le poids total de pommes ramassées.";
 
         bucket.SetActive(true);
         path2.SetActive(false);
@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
 
     private bool isQuest2Finished()
     {
-        if (collectorBucket.GetComponentInChildren<BucketBehavior>().GetMass() == 1.0M)
+        if (collectorBucket.GetComponentInChildren<CollectorBucketBehavior>().GetMass() == 1.0M)
             return true;
         else
             return false;
