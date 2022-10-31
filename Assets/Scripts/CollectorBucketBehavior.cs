@@ -10,18 +10,23 @@ public class CollectorBucketBehavior : MonoBehaviour
     List<GameObject> objects = new List<GameObject>();
     private decimal mass = 0.0M;
     public bool isChanged = false;
+
+    private bool isGrabbed = false;
     
     // Start is called before the first frame update
     void Start()
     {
         //text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        text.text = "0.0 Kg";
+        if(text)
+            text.text = "0.0 Kg";
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.SetText(GetMass().ToString() + " Kg");
+        if(text)
+            text.SetText(GetMass().ToString() + " Kg");
+        
         if(isChanged)
         {
             isChanged = false;
@@ -35,7 +40,11 @@ public class CollectorBucketBehavior : MonoBehaviour
         //if (other.gameObject.tag == "Apple")
         {
             mass += (decimal)other.GetComponent<Rigidbody>().mass;
-            TestBluetooth.dataToSend = (int)(mass * 1000);
+            //TestBluetooth.dataToSend = (int)(mass * 1000);
+
+            if (TestBluetooth.BTHInstance)
+                TestBluetooth.SendContainerWeight(transform.parent.gameObject);
+
             other.transform.SetParent(transform);
             objects.Add(other.gameObject);
         }    
@@ -47,7 +56,11 @@ public class CollectorBucketBehavior : MonoBehaviour
         //if (other.gameObject.tag == "Apple")
         {
             mass -= (decimal)other.GetComponent<Rigidbody>().mass;
-            TestBluetooth.dataToSend = (int)(mass * 1000);
+            //TestBluetooth.dataToSend = (int)(mass * 1000);
+
+            if (isGrabbed && TestBluetooth.BTHInstance)
+                TestBluetooth.SendContainerWeight(transform.parent.gameObject);
+            
             other.transform.SetParent(null);
             objects.Remove(other.gameObject);
         }
@@ -57,4 +70,10 @@ public class CollectorBucketBehavior : MonoBehaviour
     {
         return mass;
     }
+
+    public void OnGrab()
+    {
+        isGrabbed = !isGrabbed;
+    }
+
 }

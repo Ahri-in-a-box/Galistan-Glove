@@ -332,13 +332,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 980431852}
     m_Modifications:
+    - target: {fileID: -6312387081634874595, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6312387081634874595, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1349196384071434, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
       propertyPath: m_Name
       value: battle_axe
       objectReference: {fileID: 0}
     - target: {fileID: 4267829336699516, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4267829336699516, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,7 +388,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -43.353
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5603021580505446670, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ae6742f50b4c4d91be50bcbadb35fbd, type: 3}
 --- !u!4 &31206874 stripped
 Transform:
@@ -1014,11 +1023,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4477774390129726, guid: c7f6e865afc8d49f49df5172864ea8f3, type: 3}
   m_PrefabInstance: {fileID: 214705202}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &216772624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
-  m_PrefabInstance: {fileID: 1868799862}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &216772628 stripped
 Transform:
@@ -2202,18 +2206,6 @@ MonoBehaviour:
       - m_Target: {fileID: 343352597}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6795,6 +6787,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 273342231}
+        m_TargetAssemblyTypeName: TestBluetooth, Assembly-CSharp
+        m_MethodName: SendObjectWeight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -6814,6 +6818,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 273342231}
+        m_TargetAssemblyTypeName: TestBluetooth, Assembly-CSharp
+        m_MethodName: ResetObjectWeight
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9714,6 +9730,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7035699895765174632, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035699895765174632, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -9724,6 +9744,10 @@ PrefabInstance:
     - target: {fileID: 8481745761952787176, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481745761952787176, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
+      propertyPath: m_TagString
+      value: Container
       objectReference: {fileID: 0}
     - target: {fileID: 9151004902559756370, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
       propertyPath: m_RootOrder
@@ -9781,8 +9805,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7035699895765174632, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5015cf7de61003d4b9431f0462d9c040, type: 3}
 --- !u!1 &1443038231
 GameObject:
@@ -12272,15 +12295,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1706829564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca12930c6dce2f949aa8cbd83c767df2, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c1182f164fdc74584ddc9ec20ef5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   questObjects: {fileID: 2021571985}
-  dummy: {fileID: 216772624}
+  dummy: {fileID: 1868799863}
   bubbleBackground: {fileID: 1478178293}
   player: {fileID: 92920529}
   bubble: {fileID: 1654012648}
   hints: {fileID: 1264641915}
+  gameState: 2
 --- !u!4 &1706829566
 Transform:
   m_ObjectHideFlags: 0
@@ -14071,8 +14095,14 @@ PrefabInstance:
       propertyPath: m_CullingMode
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 667610465589500946, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
+--- !u!1 &1868799863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
+  m_PrefabInstance: {fileID: 1868799862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1882758424
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private TextMeshProUGUI bubble;
     [SerializeField] private TextMeshProUGUI hints;
+    [SerializeField] private int gameState = 0;
 
     private GameObject path1;
     private GameObject path2;
@@ -24,7 +25,6 @@ public class GameManager : MonoBehaviour
     private GameObject tree3;
     private GameObject tree4;
     private GameObject tree5;
-    private int gameState = 0;
     private int treeCount = 0;
     private bool isActive = false;
 

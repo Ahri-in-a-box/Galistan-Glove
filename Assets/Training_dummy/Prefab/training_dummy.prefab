@@ -105,8 +105,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5360683131785772904}
   - component: {fileID: 5615497917579445399}
-  - component: {fileID: 667610465589500946}
   - component: {fileID: 2241843532838508883}
+  - component: {fileID: 1800551155363936057}
   m_Layer: 0
   m_Name: training_dummy
   m_TagString: Untagged
@@ -151,18 +151,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &667610465589500946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4697017240656324050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecde6d9fb59914d44b9a2a2d00f64df1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2241843532838508883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,6 +164,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5225654, y: 2.4235468, z: 1}
   m_Center: {x: -0.022303253, y: 0.7117739, z: 2.181022e-10}
+--- !u!114 &1800551155363936057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697017240656324050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8691a94222020be44819082fdcb02868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6774080502169825540
 GameObject:
   m_ObjectHideFlags: 0

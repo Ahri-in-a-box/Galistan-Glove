@@ -57,7 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BluetoothAPI\Scripts\SphereContRot.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_Highlighter.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_GraspEditor.cs" />
@@ -67,11 +66,9 @@
     <Compile Include="Assets\BluetoothAPI\Scripts\BTManager.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
-    <Compile Include="Assets\Scripts\TreeBehavior.cs" />
     <Compile Include="Assets\Scripts\TestBluetooth.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
-    <Compile Include="Assets\Scripts\DummyBehavior.cs" />
     <Compile Include="Assets\Scripts\UserInterfaceManager.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
@@ -95,12 +92,15 @@
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_PostAnimator.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllerManager.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
+    <Compile Include="Assets\Scripts\BucketBehavior.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
     <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
     <Compile Include="Assets\BluetoothAPI\Scripts\ScanSceneManager.cs" />
     <Compile Include="Assets\BluetoothAPI\Scripts\BLEServicesManager.cs" />
     <Compile Include="Assets\Scripts\BubbleBehavior.cs" />
-    <Compile Include="Assets\Scripts\BucketBehavior.cs" />
+    <Compile Include="Assets\Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\TreeBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
