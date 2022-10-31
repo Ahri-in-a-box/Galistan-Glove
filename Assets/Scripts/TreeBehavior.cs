@@ -14,12 +14,12 @@ public class TreeBehavior : MonoBehaviour
     {
         if(collision.gameObject.name == "axe")
         {
-            print("arbre touché");
+            //print("arbre touché");
             count++;
         }
         if(count == 3)
         {
-            print("arbre coupé");
+            //print("arbre coupé");
             isFallen = true;
             
             OnFallEvent?.Invoke();

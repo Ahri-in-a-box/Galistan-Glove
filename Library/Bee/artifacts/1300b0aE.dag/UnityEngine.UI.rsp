@@ -129,6 +129,9 @@
 -define:PACKAGE_UITOOLKIT
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Plugins/ArduinoBluetoothAPI.dll"
+-r:"Assets/ThirdParty/VirtualGrasp/Plugins/Editor/virtualgrasp-editor.CSharp.Unity.NET3.5.dll"
+-r:"Assets/ThirdParty/VirtualGrasp/Plugins/virtualgrasp.CSharp.Unity.NET3.5.dll"
 -r:"C:/Unity/2021.3.11f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Unity/2021.3.11f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Unity/2021.3.11f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
