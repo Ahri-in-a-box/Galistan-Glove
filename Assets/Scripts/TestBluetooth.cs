@@ -8,9 +8,12 @@ public class TestBluetooth : MonoBehaviour
 {
     public static TestBluetooth BTHInstance;
 
+    [SerializeField] private static Transform rightHandController;
+
     private static BluetoothHelper BTHelper;
     private static byte[] data = new byte[512];
     private int lastDataSent = 0;
+    private static float dmax = 10.0f;
 
     //[SerializeField, Range(0, 3000)] private int dataToSend = 500;
     public static int dataToSend = 1;
@@ -65,15 +68,34 @@ public class TestBluetooth : MonoBehaviour
         }*/
     }
 
-
     public static void SendContainerWeight(GameObject obj)
     {
         Rigidbody rgbd = obj.GetComponent<Rigidbody>();
         decimal mass = (decimal)rgbd.mass;
         
         if (rgbd.tag == "Container")
-            mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>().GetMass();
-        
+            mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>()?.GetMass() ?? 0;
+
+        Vector3 pos = rgbd.worldCenterOfMass - rightHandController.position;
+
+        float d = Vector2.Distance(
+            new Vector2(rgbd.worldCenterOfMass.x, rgbd.worldCenterOfMass.z),
+            new Vector2(rightHandController.position.x, rightHandController.position.z)
+        );
+
+        if(pos.x > 0)
+        {
+            float m1 = (float)mass * d/dmax;
+            float m2 = (float)mass - m1;
+        }
+        else if(pos.x < 0)
+        {
+            float m2 = (float)mass * d / dmax; 
+            float m1 = (float)mass - m2;
+        }
+
+        float alpha = Mathf.Atan(pos.y/pos.x);
+
         SendWeight((int)(mass * 1000));
     }
 
