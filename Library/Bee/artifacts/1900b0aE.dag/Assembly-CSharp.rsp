@@ -378,8 +378,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
--analyzer:"Assets/Imports/ThirdParty/VirtualGrasp/Plugins/Editor/virtualgrasp-editor.CSharp.Unity.NET3.5.dll"
--analyzer:"Assets/Imports/ThirdParty/VirtualGrasp/Plugins/virtualgrasp.CSharp.Unity.NET3.5.dll"
 "Assets/Imports/BluetoothAPI/Scripts/BLEServicesManager.cs"
 "Assets/Imports/BluetoothAPI/Scripts/BTManager.cs"
 "Assets/Imports/BluetoothAPI/Scripts/Demo.cs"

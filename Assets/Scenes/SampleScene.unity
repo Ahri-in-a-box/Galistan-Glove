@@ -1500,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4acfea060717dcd47875cdd4726fd36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RHController: {fileID: 963708861}
 --- !u!4 &273342232
 Transform:
   m_ObjectHideFlags: 0
@@ -10020,7 +10021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1443038232
 RectTransform:
   m_ObjectHideFlags: 0

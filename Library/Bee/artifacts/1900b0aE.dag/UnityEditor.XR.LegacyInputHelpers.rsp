@@ -353,8 +353,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
--analyzer:"Assets/Imports/ThirdParty/VirtualGrasp/Plugins/Editor/virtualgrasp-editor.CSharp.Unity.NET3.5.dll"
--analyzer:"Assets/Imports/ThirdParty/VirtualGrasp/Plugins/virtualgrasp.CSharp.Unity.NET3.5.dll"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/ArmModels/ArmModelEditor.cs"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/ArmModels/SwingArmModelEditor.cs"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/ArmModels/TransitionArmModelEditor.cs"

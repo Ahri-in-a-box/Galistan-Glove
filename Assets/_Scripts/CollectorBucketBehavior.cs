@@ -43,7 +43,7 @@ public class CollectorBucketBehavior : MonoBehaviour
             //TestBluetooth.dataToSend = (int)(mass * 1000);
 
             if (TestBluetooth.BTHInstance)
-                TestBluetooth.SendContainerWeight(transform.parent.gameObject);
+                TestBluetooth.BTHInstance.SendContainerWeight(transform.parent.gameObject);
 
             other.transform.SetParent(transform);
             objects.Add(other.gameObject);
@@ -59,7 +59,7 @@ public class CollectorBucketBehavior : MonoBehaviour
             //TestBluetooth.dataToSend = (int)(mass * 1000);
 
             if (isGrabbed && TestBluetooth.BTHInstance)
-                TestBluetooth.SendContainerWeight(transform.parent.gameObject);
+                TestBluetooth.BTHInstance.SendContainerWeight(transform.parent.gameObject);
             
             other.transform.SetParent(null);
             objects.Remove(other.gameObject);

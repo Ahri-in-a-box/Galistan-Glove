@@ -354,8 +354,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
--analyzer:"Assets/Imports/ThirdParty/VirtualGrasp/Plugins/Editor/virtualgrasp-editor.CSharp.Unity.NET3.5.dll"
--analyzer:"Assets/Imports/ThirdParty/VirtualGrasp/Plugins/virtualgrasp.CSharp.Unity.NET3.5.dll"
 "Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.3/Editor/AR/Interactables/ARAnnotationInteractableEditor.cs"
 "Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.3/Editor/AR/Interactables/ARBaseGestureInteractableEditor.cs"
 "Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.3/Editor/AR/Interactables/ARPlacementInteractableEditor.cs"

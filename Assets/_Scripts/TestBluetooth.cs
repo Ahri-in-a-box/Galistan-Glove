@@ -8,13 +8,17 @@ public class TestBluetooth : MonoBehaviour
 {
     public static TestBluetooth BTHInstance;
 
-    [SerializeField] private static Transform rightHandController;
+    [SerializeField] private Transform RHController;
+    private static Transform rightHandController;
 
     private static BluetoothHelper BTHelper;
     private static byte[] data = new byte[512];
     private int lastDataSent = 0;
-    private static float dmax = 10.0f;
+    private static float dmax = 0.2f;
+    private float coeffReduc = 0.1f;
 
+    private GameObject props;
+    
     //[SerializeField, Range(0, 3000)] private int dataToSend = 500;
     public static int dataToSend = 1;
 
@@ -32,10 +36,12 @@ public class TestBluetooth : MonoBehaviour
 
         BTHelper.Connect();
         
-        BTHelper.setFixedLengthBasedStream(4);
+        BTHelper.setFixedLengthBasedStream(8);
 
         data[0] = 0x42;
         data[1] = 0x69;
+
+        rightHandController = RHController;
     }
 
     private void BTHelper_OnDataReceived()
@@ -56,50 +62,54 @@ public class TestBluetooth : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*
-        if(BTHelper.isConnected() && lastDataSent != dataToSend)
+        if(props)
         {
-            SendWeight(dataToSend);
-            lastDataSent = dataToSend;
+            Rigidbody rgbd = props.GetComponent<Rigidbody>();
+            decimal mass = (decimal)rgbd.mass;
+
+            if (rgbd.tag == "Container")
+                mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>()?.GetMass() ?? 0;
+
+            Vector3 pos = rgbd.worldCenterOfMass - rightHandController.position;
+
+            float d = coeffReduc * Vector2.Distance(
+                new Vector2(rgbd.worldCenterOfMass.x, rgbd.worldCenterOfMass.z),
+                new Vector2(rightHandController.position.x, rightHandController.position.z)
+            );
+
+            float theta = Mathf.Rad2Deg * Mathf.Atan(pos.z / pos.x);
+            float alpha = theta + rightHandController.rotation.eulerAngles.y;
+
+            float m1, m2;
+
+            if (Mathf.Abs(alpha) < 89.99)
+            {
+                m1 = (float)mass * d / dmax;
+                m2 = (float)mass - m1;
+            }
+            else if (Mathf.Abs(alpha) > 90.01)
+            {
+                m2 = (float)mass * d / dmax;
+                m1 = (float)mass - m2;
+            }
+            else
+            {
+                m1 = (float)mass / 2;
+                m2 = m1;
+            }
+
+            print("m1 : " + m1 + ", m2 : " + m2 + ", alpha : " + alpha);
+
+            SendData(m1, m2, alpha);
         }
-        while (BTHelper.Available)
-        {
-            print(BTHelper.ReadBytes().Length);
-        }*/
     }
 
-    public static void SendContainerWeight(GameObject obj)
+    public void SendContainerWeight(GameObject obj)
     {
-        Rigidbody rgbd = obj.GetComponent<Rigidbody>();
-        decimal mass = (decimal)rgbd.mass;
-        
-        if (rgbd.tag == "Container")
-            mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>()?.GetMass() ?? 0;
-
-        Vector3 pos = rgbd.worldCenterOfMass - rightHandController.position;
-
-        float d = Vector2.Distance(
-            new Vector2(rgbd.worldCenterOfMass.x, rgbd.worldCenterOfMass.z),
-            new Vector2(rightHandController.position.x, rightHandController.position.z)
-        );
-
-        if(pos.x > 0)
-        {
-            float m1 = (float)mass * d/dmax;
-            float m2 = (float)mass - m1;
-        }
-        else if(pos.x < 0)
-        {
-            float m2 = (float)mass * d / dmax; 
-            float m1 = (float)mass - m2;
-        }
-
-        float alpha = Mathf.Atan(pos.y/pos.x);
-
-        SendWeight((int)(mass * 1000));
+        props = obj;
     }
 
-    public static void SendObjectWeight(SelectEnterEventArgs args)
+    public void SendObjectWeight(SelectEnterEventArgs args)
     {
         if(args.interactableObject.transform.tag != "Ground")
         {
@@ -107,21 +117,30 @@ public class TestBluetooth : MonoBehaviour
         }
     }
 
-    public static void ResetObjectWeight(SelectExitEventArgs args)
+    public void ResetObjectWeight(SelectExitEventArgs args)
     {
+        props = null;
         if (args.interactableObject.transform.tag != "Ground")
-            SendWeight(1);
+            SendData(0, 0, 0);
     }
 
-
-    private static void SendWeight(int mass)
+    private static void SendData(float m1, float m2, float alpha)
     {
-        ushort d = (ushort)mass;
-        data[2] = (byte)(d & 0xff);
-        data[3] = (byte)(d >> 8);
+        ushort d1 = (ushort)(m1 * 1000);
+        ushort d2 = (ushort)(m2 * 1000);
+        ushort dAlpha = (ushort)Mathf.RoundToInt(alpha / 0.01f);
 
-        BTHelper.SendData(data[0..4]);
-        print("Sent" + mass);
+        data[2] = (byte)(d1 & 0xff);
+        data[3] = (byte)(d1 >> 8);
+        data[4] = (byte)(d2 & 0xff);
+        data[5] = (byte)(d2 >> 8);
+        data[6] = (byte)(dAlpha & 0xff);
+        data[7] = (byte)(dAlpha >> 8);
+
+        if (BTHelper.isConnected())
+            BTHelper.SendData(data[0..8]);
+        else
+            print("Arduino not available");
     }
 
 

@@ -54,8 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\Documents\GitHub\Galistan-Glove\Assets\Imports\ThirdParty\VirtualGrasp\Plugins\Editor\virtualgrasp-editor.CSharp.Unity.NET3.5.dll" />
-    <Analyzer Include="D:\Documents\GitHub\Galistan-Glove\Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\SphereContRot.cs" />
@@ -396,11 +394,11 @@
     <Reference Include="ArduinoBluetoothAPI">
       <HintPath>Assets\Plugins\ArduinoBluetoothAPI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="virtualgrasp.CSharp.Unity.NET3.5">
       <HintPath>Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Unity\2021.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
