@@ -54,12 +54,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Documents\GitHub\Galistan-Glove\Assets\Imports\ThirdParty\VirtualGrasp\Plugins\Editor\virtualgrasp-editor.CSharp.Unity.NET3.5.dll" />
+    <Analyzer Include="D:\Documents\GitHub\Galistan-Glove\Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Tutorials\TutorialCallbacks.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Tutorials\TutorialCallbacks.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\ThirdParty\VirtualGrasp\Tutorials\TutorialDependencies.asmdef" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Tutorials\TutorialDependencies.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -332,14 +334,8 @@
     <Reference Include="ArduinoBluetoothAPI">
       <HintPath>Assets\Plugins\ArduinoBluetoothAPI.dll</HintPath>
     </Reference>
-    <Reference Include="virtualgrasp-editor.CSharp.Unity.NET3.5">
-      <HintPath>Assets\ThirdParty\VirtualGrasp\Plugins\Editor\virtualgrasp-editor.CSharp.Unity.NET3.5.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="virtualgrasp.CSharp.Unity.NET3.5">
-      <HintPath>Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -355,6 +351,12 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="virtualgrasp-editor.CSharp.Unity.NET3.5">
+      <HintPath>Assets\Imports\ThirdParty\VirtualGrasp\Plugins\Editor\virtualgrasp-editor.CSharp.Unity.NET3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="virtualgrasp.CSharp.Unity.NET3.5">
+      <HintPath>Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>

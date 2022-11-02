@@ -54,53 +54,55 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Documents\GitHub\Galistan-Glove\Assets\Imports\ThirdParty\VirtualGrasp\Plugins\Editor\virtualgrasp-editor.CSharp.Unity.NET3.5.dll" />
+    <Analyzer Include="D:\Documents\GitHub\Galistan-Glove\Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BluetoothAPI\Scripts\SphereContRot.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_Highlighter.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_GraspEditor.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnPushEvents.cs" />
-    <Compile Include="Assets\BluetoothAPI\Scripts\Demo.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_MouseHand.cs" />
-    <Compile Include="Assets\BluetoothAPI\Scripts\BTManager.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
-    <Compile Include="Assets\Scripts\TestBluetooth.cs" />
-    <Compile Include="Assets\Scripts\Hand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
-    <Compile Include="Assets\Scripts\UserInterfaceManager.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
-    <Compile Include="Assets\BluetoothAPI\Scripts\ScanScene2.cs" />
-    <Compile Include="Assets\Scripts\Apples.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SimpleImpact.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\DissembleWithDistance.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ManageContainerObject.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandStatusDebugger.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleArticulationBody.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleVGArticulation.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_LeapHand.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityInteractionHand.cs" />
-    <Compile Include="Assets\Scripts\CollectorBucketBehavior.cs" />
-    <Compile Include="Assets\Scripts\HandControl.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ToggleLight.cs" />
-    <Compile Include="Assets\Low Poly Fruits\resources\fruits_tester.cs" />
-    <Compile Include="Assets\BluetoothAPI\Scripts\manager.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_PostAnimator.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllerManager.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
-    <Compile Include="Assets\Scripts\BucketBehavior.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
-    <Compile Include="Assets\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
-    <Compile Include="Assets\BluetoothAPI\Scripts\ScanSceneManager.cs" />
-    <Compile Include="Assets\BluetoothAPI\Scripts\BLEServicesManager.cs" />
-    <Compile Include="Assets\Scripts\BubbleBehavior.cs" />
-    <Compile Include="Assets\Scripts\DummyBehavior.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\TreeBehavior.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\SphereContRot.cs" />
+    <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_Highlighter.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_GraspEditor.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnPushEvents.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\Demo.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_MouseHand.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BTManager.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
+    <Compile Include="Assets\_Scripts\TestBluetooth.cs" />
+    <Compile Include="Assets\_Scripts\Hand.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
+    <Compile Include="Assets\_Scripts\UserInterfaceManager.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\ScanScene2.cs" />
+    <Compile Include="Assets\_Scripts\Apples.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SimpleImpact.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\DissembleWithDistance.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ManageContainerObject.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HandStatusDebugger.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleArticulationBody.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleVGArticulation.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_LeapHand.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityInteractionHand.cs" />
+    <Compile Include="Assets\_Scripts\CollectorBucketBehavior.cs" />
+    <Compile Include="Assets\_Scripts\HandControl.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ToggleLight.cs" />
+    <Compile Include="Assets\Imports\Low Poly Fruits\resources\fruits_tester.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\manager.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_PostAnimator.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllerManager.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
+    <Compile Include="Assets\_Scripts\TreeBehavior.cs" />
+    <Compile Include="Assets\_Scripts\BucketBehavior.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
+    <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\ScanSceneManager.cs" />
+    <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BLEServicesManager.cs" />
+    <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
+    <Compile Include="Assets\_Scripts\DummyBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -108,36 +110,36 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.xml" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\ThirdParty\VirtualGrasp\Resources\GleechiHands\SH_GleechiHandsFS.shader" />
-    <None Include="Assets\ThirdParty\VirtualGrasp\Plugins\x86_64\virtualgrasp-selection.dll" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Resources\GleechiHands\SH_GleechiHandsFS.shader" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Plugins\x86_64\virtualgrasp-selection.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\ThirdParty\VirtualGrasp\Resources\GleechiHands\SH_GleechiUnlit.shader" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Resources\GleechiHands\SH_GleechiUnlit.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\MegaPack1Lite\SciFiPack1\README.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\SciFiPack1\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\BluetoothAPI\changelogs.txt" />
+    <None Include="Assets\Imports\BluetoothAPI\changelogs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\MegaPack1Lite\TropicalIslandPack1\README.txt" />
-    <None Include="Assets\MegaPack1Lite\EnchantedForestPack1\README.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\TropicalIslandPack1\README.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\EnchantedForestPack1\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\MegaPack1Lite\Steampunk\README.txt" />
-    <None Include="Assets\BluetoothAPI\help.txt" />
-    <None Include="Assets\MegaPack1Lite\GreekPack1Lite\README.txt" />
-    <None Include="Assets\MegaPack1Lite\RomanCityPack1Lite\README.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\Steampunk\README.txt" />
+    <None Include="Assets\Imports\BluetoothAPI\help.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\GreekPack1Lite\README.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\RomanCityPack1Lite\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Downtown Game Studio\Nature Pack - Low Polly Trees &amp; Bushes\Documentation.txt" />
+    <None Include="Assets\Imports\Downtown Game Studio\Nature Pack - Low Polly Trees &amp; Bushes\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\MegaPack1Lite\ToolsAndWeapons\README.txt" />
+    <None Include="Assets\Imports\MegaPack1Lite\ToolsAndWeapons\README.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll" />
-    <None Include="Assets\ThirdParty\VirtualGrasp\Resources\RimLight.shader" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll" />
+    <None Include="Assets\Imports\ThirdParty\VirtualGrasp\Resources\RimLight.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
@@ -394,11 +396,11 @@
     <Reference Include="ArduinoBluetoothAPI">
       <HintPath>Assets\Plugins\ArduinoBluetoothAPI.dll</HintPath>
     </Reference>
-    <Reference Include="virtualgrasp.CSharp.Unity.NET3.5">
-      <HintPath>Assets\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="virtualgrasp.CSharp.Unity.NET3.5">
+      <HintPath>Assets\Imports\ThirdParty\VirtualGrasp\Plugins\virtualgrasp.CSharp.Unity.NET3.5.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Unity\2021.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
