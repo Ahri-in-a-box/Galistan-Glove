@@ -15,6 +15,7 @@ public class TestBluetooth : MonoBehaviour
     private const float coeffReduc = 0.1f;
 
     private GameObject props;
+    private int timeCount = 0;
 
     private void Awake()
     {
@@ -56,26 +57,26 @@ public class TestBluetooth : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(props)
+        if (props)
         {
             Rigidbody rgbd = props.GetComponent<Rigidbody>();
             decimal mass = (decimal)rgbd.mass;
-
+        
             if (rgbd.tag == "Container")
                 mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>()?.GetMass() ?? 0;
-
+        
             Vector3 pos = rgbd.worldCenterOfMass - rightHandController.position;
-
+        
             float d = coeffReduc * Vector2.Distance(
                 new Vector2(rgbd.worldCenterOfMass.x, rgbd.worldCenterOfMass.z),
                 new Vector2(rightHandController.position.x, rightHandController.position.z)
             );
-
+        
             float theta = Mathf.Rad2Deg * Mathf.Atan(pos.z / pos.x);
             float alpha = theta + rightHandController.rotation.eulerAngles.y;
-
+        
             float m1, m2;
-
+        
             if (Mathf.Abs(alpha) < 89.99)
             {
                 m1 = (float)mass * d / dmax;
@@ -91,11 +92,13 @@ public class TestBluetooth : MonoBehaviour
                 m1 = (float)mass / 2;
                 m2 = m1;
             }
-
+        
             print("m1 : " + m1 + ", m2 : " + m2 + ", alpha : " + alpha);
-
+        
             SendData(m1, m2, alpha);
+        
         }
+
     }
 
     public void SendContainerWeight(GameObject obj)

@@ -57,9 +57,10 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public void ToggleVisibility()
+    public void ToggleVisibility(bool right)
     {
         mesh.enabled = !mesh.enabled;
-        menu.SetActive(!menu.activeSelf);
+        if(right)
+            menu.SetActive(!menu.activeSelf);
     }
 }
