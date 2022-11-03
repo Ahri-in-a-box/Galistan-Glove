@@ -5445,15 +5445,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740144408}
-  m_LocalRotation: {x: -0, y: 0.9919212, z: 0.12685545, w: -0.000000029802319}
+  m_LocalRotation: {x: -0.000000029802319, y: 0.9919212, z: 0.12685546, w: 0.000000029802319}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0010000004, y: 0.001, z: 0.0010000003}
+  m_LocalScale: {x: 0.0010000004, y: 0.0009999999, z: 0.001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2001643678}
   - {fileID: 1443038232}
   m_Father: {fileID: 963708861}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -14.576, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6724,8 +6724,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1809305098}
   - {fileID: 740144412}
+  - {fileID: 1809305098}
   m_Father: {fileID: 658648193}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9024,6 +9024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  menu: {fileID: 0}
 --- !u!64 &1233798658
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12501,7 +12502,7 @@ MonoBehaviour:
   player: {fileID: 92920529}
   bubble: {fileID: 1654012648}
   hints: {fileID: 1264641915}
-  gameState: 2
+  m_GameState: 0
 --- !u!4 &1706829566
 Transform:
   m_ObjectHideFlags: 0
@@ -13000,7 +13001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7837ab2d6fd6e441b2ab1c2a6fc24b6, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7837ab2d6fd6e441b2ab1c2a6fc24b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -13607,6 +13608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  menu: {fileID: 2001643677}
 --- !u!95 &1809305101
 Animator:
   serializedVersion: 4

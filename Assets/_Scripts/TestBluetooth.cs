@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using ArduinoBluetoothAPI;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -12,15 +10,11 @@ public class TestBluetooth : MonoBehaviour
     private static Transform rightHandController;
 
     private static BluetoothHelper BTHelper;
-    private static byte[] data = new byte[512];
-    private int lastDataSent = 0;
-    private static float dmax = 0.2f;
-    private float coeffReduc = 0.1f;
+    private static readonly byte[] data = new byte[512];
+    private static readonly float dmax = 0.2f;
+    private const float coeffReduc = 0.1f;
 
     private GameObject props;
-    
-    //[SerializeField, Range(0, 3000)] private int dataToSend = 500;
-    public static int dataToSend = 1;
 
     private void Awake()
     {
@@ -112,9 +106,7 @@ public class TestBluetooth : MonoBehaviour
     public void SendObjectWeight(SelectEnterEventArgs args)
     {
         if(args.interactableObject.transform.tag != "Ground")
-        {
             SendContainerWeight(args.interactableObject.transform.gameObject);
-        }
     }
 
     public void ResetObjectWeight(SelectExitEventArgs args)

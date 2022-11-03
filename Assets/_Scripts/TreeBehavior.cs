@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeBehavior : MonoBehaviour
@@ -17,17 +15,20 @@ public class TreeBehavior : MonoBehaviour
             //print("arbre touché");
             count++;
         }
-        if(count == 3)
+
+        if(count == 3 && !isFallen)
         {
             //print("arbre coupé");
             isFallen = true;
             
             OnFallEvent?.Invoke();
 
-            gameObject.GetComponent<Rigidbody>().isKinematic = false ;            
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;            
         }
+
         if(isFallen == true)
         {
+            //TD: Inutile je pense
             count = -1;
         }
     }

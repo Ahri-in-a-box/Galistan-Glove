@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-//using UnityEditor;
-//using UnityEditor.Animations;
 
 public class DummyBehavior : MonoBehaviour
 {
-    Animator anim;
+    private Animator anim;
+
+    public delegate void OnDummyHit();
+    public static event OnDummyHit OnDummyHitEvent;
 
     private void Awake()
     {
@@ -19,6 +18,6 @@ public class DummyBehavior : MonoBehaviour
         anim.Play("pushed", 0, 0.0f);
 
         if (GameManager.Instance.GetGameState() == 0)
-            GameManager.Instance.SetGameState(1);
+            OnDummyHitEvent?.Invoke(); //GameManager.Instance.SetGameState(1);
     }
 }

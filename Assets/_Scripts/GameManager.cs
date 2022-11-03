@@ -1,10 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private enum GameState
+    {
+        IDLE,
+        QUEST1_ACTIVE,
+        QUEST1_FINISHED,
+        QUEST2_ACTIVE,
+        QUEST2_FINISHED, 
+        GAME_OVER
+    }
     public static GameManager Instance;
 
     [SerializeField] private GameObject questObjects;
@@ -13,19 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private TextMeshProUGUI bubble;
     [SerializeField] private TextMeshProUGUI hints;
-    [SerializeField] private int gameState = 0;
+    [SerializeField] private GameState m_GameState = 0;
 
     private GameObject path1;
     private GameObject path2;
     private GameObject axe;
     private GameObject bucket;
     private GameObject collectorBucket;
-    private GameObject tree1;
-    private GameObject tree2;
-    private GameObject tree3;
-    private GameObject tree4;
-    private GameObject tree5;
     private int treeCount = 0;
+    private int gameState = 0;
     private bool isActive = false;
 
     private void Awake()
@@ -35,7 +38,33 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
-        TreeBehavior.OnFallEvent += IncrementTree; 
+        TreeBehavior.OnFallEvent += () =>
+        {
+            IncrementTree();
+            if(treeCount >= 5)
+            {
+                m_GameState = GameState.QUEST1_FINISHED;
+                bubbleBackground.gameObject.SetActive(false);
+                hints.text = "Retournez-voir le mannequin";
+            }
+        };
+        DummyBehavior.OnDummyHitEvent += () =>
+        {
+            m_GameState = GameState.QUEST1_ACTIVE;
+            Quest1();
+        };
+        CollectorBucketBehavior.OnRequiredApplesEvent += () =>
+        {
+            m_GameState = GameState.QUEST2_FINISHED;
+            bubbleBackground.gameObject.SetActive(false);
+            hints.text = "Retournez-voir le mannequin";
+        };
+
+        CollectorBucketBehavior.OnNotEnoughApplesEvent += () =>
+        {
+            Quest2();
+            m_GameState = GameState.QUEST2_ACTIVE;
+        };
     }
 
     // Start is called before the first frame update
@@ -46,17 +75,43 @@ public class GameManager : MonoBehaviour
         axe = questObjects.transform.GetChild(2).gameObject;
         bucket = questObjects.transform.GetChild(3).gameObject;
         collectorBucket = questObjects.transform.GetChild(4).gameObject;
-        tree1 = questObjects.transform.GetChild(5).gameObject;
-        tree2 = questObjects.transform.GetChild(6).gameObject;
-        tree3 = questObjects.transform.GetChild(7).gameObject;
-        tree4 = questObjects.transform.GetChild(8).gameObject;
-        tree5 = questObjects.transform.GetChild(9).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameState == 1 && isActive == false)
+        //Gerer passage quete 2
+        switch (m_GameState)
+        {
+            case GameState.QUEST1_FINISHED:
+                if (IsPlayer3m())
+                {
+                    Quest2();
+                    m_GameState = GameState.QUEST2_ACTIVE;
+                }
+                break;
+            //case GameState.QUEST2_ACTIVE:
+            //    if (isQuest2Finished())
+            //    {
+            //        m_GameState = GameState.QUEST2_FINISHED;
+            //        bubbleBackground.gameObject.SetActive(false);
+            //        hints.text = "Retournez-voir le mannequin";
+            //    }
+            //    break;
+            case GameState.QUEST2_FINISHED:
+                if (IsPlayer3m())
+                {
+                    m_GameState = GameState.GAME_OVER;
+                    bubbleBackground.gameObject.SetActive(true);
+                    bubble.text = "Merci d'avoir joué !";
+                    hints.text = "";
+                }
+                break;
+            default: break;
+        }
+
+
+        /*if (gameState == 1 && isActive == false)
         {
             //print("lancement de la quête");
             Quest1();
@@ -77,7 +132,7 @@ public class GameManager : MonoBehaviour
         if(gameState == 2 && isActive == false)
         {
             //Si le joueur s'appoche à 3 mètres du mannequin
-            if(isPlayer3m())
+            if(IsPlayer3m())
             {
                 //print("lancement quête 2");
                 Quest2();
@@ -99,14 +154,14 @@ public class GameManager : MonoBehaviour
         if(gameState == 3 && isActive == false)
         {
             //Si le joueur s'appoche à 3 mètres du mannequin
-            if(isPlayer3m())
+            if(IsPlayer3m())
             {
                 //print("fin du jeu");
                 bubbleBackground.gameObject.SetActive(true);
                 bubble.text = "Merci d'avoir joué !";
                 hints.text = "";
             }
-        }
+        }*/
     }
 
     public int GetGameState()
@@ -124,8 +179,14 @@ public class GameManager : MonoBehaviour
         print(treeCount);
     }
 
+    private bool IsPlayer3m()
+    {
+        return Vector3.Distance(player.position, dummy.transform.position) < 3.01;
+    }
+
     private bool isPlayer3m()
     {
+        //TD: Fonction simplifiée plus haut
         float x, y, z;
         x = player.position.x - dummy.transform.position.x;
         y = player.position.y - dummy.transform.position.y;

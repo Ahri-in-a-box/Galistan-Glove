@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class Hand : MonoBehaviour
 {
-    Animator animator;
-    SkinnedMeshRenderer mesh;
+    private Animator animator;
+    private SkinnedMeshRenderer mesh;
 
     public float speed;
+    [SerializeField] private GameObject menu;
 
     private float gripTarget;
     private float triggerTarget;
     private float gripCurrent;
     private float triggerCurrent;
-    private string animatorGripParam = "Grip";
-    private string animatorTriggerParam = "Trigger";
+    //TD: Faire des const maybe ?
+    private readonly string animatorGripParam = "Grip";
+    private readonly string animatorTriggerParam = "Trigger";
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TD: Le code de AnimateHand pourrait se trouver à la place de cet appel
         AnimateHand();   
     }
 
@@ -59,5 +60,6 @@ public class Hand : MonoBehaviour
     public void ToggleVisibility()
     {
         mesh.enabled = !mesh.enabled;
+        menu.SetActive(!menu.activeSelf);
     }
 }

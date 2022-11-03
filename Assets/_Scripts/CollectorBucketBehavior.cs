@@ -1,18 +1,23 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class CollectorBucketBehavior : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-    List<GameObject> objects = new List<GameObject>();
+    private readonly List<GameObject> objects = new();
     private decimal mass = 0.0M;
     public bool isChanged = false;
 
     private bool isGrabbed = false;
-    
+
+    public delegate void OnRequiredApples();
+    public static event OnRequiredApples OnRequiredApplesEvent;
+
+    public delegate void OnNotEnoughApples();
+    public static event OnNotEnoughApples OnNotEnoughApplesEvent;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,9 @@ public class CollectorBucketBehavior : MonoBehaviour
         //if (other.gameObject.tag == "Apple")
         {
             mass += (decimal)other.GetComponent<Rigidbody>().mass;
-            //TestBluetooth.dataToSend = (int)(mass * 1000);
+
+            if (mass >= 1)
+                OnRequiredApplesEvent?.Invoke();
 
             if (TestBluetooth.BTHInstance)
                 TestBluetooth.BTHInstance.SendContainerWeight(transform.parent.gameObject);
@@ -56,7 +63,9 @@ public class CollectorBucketBehavior : MonoBehaviour
         //if (other.gameObject.tag == "Apple")
         {
             mass -= (decimal)other.GetComponent<Rigidbody>().mass;
-            //TestBluetooth.dataToSend = (int)(mass * 1000);
+
+            if (mass < 1)
+                OnNotEnoughApplesEvent?.Invoke();
 
             if (isGrabbed && TestBluetooth.BTHInstance)
                 TestBluetooth.BTHInstance.SendContainerWeight(transform.parent.gameObject);
