@@ -11,7 +11,7 @@ public class TestBluetooth : MonoBehaviour
 
     private static BluetoothHelper BTHelper;
     private static readonly byte[] data = new byte[512];
-    private static readonly float dmax = 0.2f;
+    private static readonly float dmax = 0.05f;
     private const float coeffReduc = 0.1f;
 
     private GameObject props;
@@ -71,31 +71,30 @@ public class TestBluetooth : MonoBehaviour
                 new Vector2(rgbd.worldCenterOfMass.x, rgbd.worldCenterOfMass.z),
                 new Vector2(rightHandController.position.x, rightHandController.position.z)
             );
-        
-            float theta = Mathf.Rad2Deg * Mathf.Atan(pos.z / pos.x);
-            float alpha = theta + rightHandController.rotation.eulerAngles.y;
-        
+
+            float tw1 = Mathf.Rad2Deg * Mathf.Asin(pos.x / d), tw2 = Mathf.Rad2Deg * Mathf.Acos(pos.z / d);
+            float thetaWorld = Mathf.Atan2(pos.x / d, pos.z / d) * Mathf.Rad2Deg;
+            float PW = rightHandController.parent.parent.rotation.eulerAngles.y;
+            float CP = rightHandController.localEulerAngles.y;
+
+            float alpha = thetaWorld - (CP+PW);
+            alpha = alpha - 360 * (int)(alpha / 360);
+            if (alpha < 0)
+                alpha += 360;
+
+            float x = Mathf.Cos(Mathf.Deg2Rad * alpha) * d;
             float m1, m2;
+
+            float ratio = x / dmax * 0.5f + 0.5f;
+
+                
+            m1 = (float)mass * ratio;
+            m2 = (float)mass * (1-ratio);
+
         
-            if (Mathf.Abs(alpha) < 89.99)
-            {
-                m1 = (float)mass * d / dmax;
-                m2 = (float)mass - m1;
-            }
-            else if (Mathf.Abs(alpha) > 90.01)
-            {
-                m2 = (float)mass * d / dmax;
-                m1 = (float)mass - m2;
-            }
-            else
-            {
-                m1 = (float)mass / 2;
-                m2 = m1;
-            }
+            print($"m1: {m1}, m2: {m2}, x: {x}, alpha: {alpha}");
         
-            print("m1 : " + m1 + ", m2 : " + m2 + ", alpha : " + alpha);
-        
-            SendData(m1, m2, alpha);
+            SendData(m1, m2);
         
         }
 
@@ -116,21 +115,18 @@ public class TestBluetooth : MonoBehaviour
     {
         props = null;
         if (args.interactableObject.transform.tag != "Ground")
-            SendData(0, 0, 0);
+            SendData(0, 0);
     }
 
-    private static void SendData(float m1, float m2, float alpha)
+    private static void SendData(float m1, float m2)
     {
         ushort d1 = (ushort)(m1 * 1000);
         ushort d2 = (ushort)(m2 * 1000);
-        ushort dAlpha = (ushort)Mathf.RoundToInt(alpha / 0.01f);
 
         data[2] = (byte)(d1 & 0xff);
         data[3] = (byte)(d1 >> 8);
         data[4] = (byte)(d2 & 0xff);
         data[5] = (byte)(d2 >> 8);
-        data[6] = (byte)(dAlpha & 0xff);
-        data[7] = (byte)(dAlpha >> 8);
 
         if (BTHelper.isConnected())
             BTHelper.SendData(data[0..8]);
