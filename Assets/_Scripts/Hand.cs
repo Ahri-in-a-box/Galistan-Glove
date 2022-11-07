@@ -61,6 +61,12 @@ public class Hand : MonoBehaviour
     {
         mesh.enabled = !mesh.enabled;
         if(right)
-            menu.SetActive(!menu.activeSelf);
+        {
+            if(menu.activeSelf)
+                menu.SetActive(false);
+            else
+                menu.SetActive(true);
+
+        }
     }
 }
