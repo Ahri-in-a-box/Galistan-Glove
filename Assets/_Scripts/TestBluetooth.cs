@@ -4,55 +4,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TestBluetooth : MonoBehaviour
 {
-    public static TestBluetooth BTHInstance;
-
+    public static TestBluetooth BTHInstance = new TestBluetooth();
     [SerializeField] private Transform RHController;
     private static Transform rightHandController;
 
-    private static BluetoothHelper BTHelper;
-    private static readonly byte[] data = new byte[512];
     private static readonly float dmax = 0.05f;
     private const float coeffReduc = 0.1f;
 
     private GameObject props;
-    private int timeCount = 0;
 
     private void Awake()
     {
-        if (BTHInstance != null)
-            Destroy(gameObject);
-        else
-            BTHInstance = this;
-
-        BTHelper = BluetoothHelper.GetInstance("Galistan-Glove");
-        BTHelper.OnConnectionFailed += BTHelper_OnConnectionFailed;
-        BTHelper.OnConnected += BTHelper_OnConnected;
-        BTHelper.OnDataReceived += BTHelper_OnDataReceived;
-
-        BTHelper.Connect();
-        
-        BTHelper.setFixedLengthBasedStream(8);
-
-        data[0] = 0x42;
-        data[1] = 0x69;
-
+        BluetoothHandler.Init();
         rightHandController = RHController;
-    }
-
-    private void BTHelper_OnDataReceived()
-    {
-        
-    }
-
-    private void BTHelper_OnConnected()
-    {
-        print("On connected");
-        BTHelper.StartListening();
-    }
-
-    private void BTHelper_OnConnectionFailed()
-    {
-        print("On connection Failed");
     }
 
     private void FixedUpdate()
@@ -118,21 +82,7 @@ public class TestBluetooth : MonoBehaviour
             SendData(0, 0);
     }
 
-    private static void SendData(float m1, float m2)
-    {
-        ushort d1 = (ushort)(m1 * 1000);
-        ushort d2 = (ushort)(m2 * 1000);
-
-        data[2] = (byte)(d1 & 0xff);
-        data[3] = (byte)(d1 >> 8);
-        data[4] = (byte)(d2 & 0xff);
-        data[5] = (byte)(d2 >> 8);
-
-        if (BTHelper.isConnected())
-            BTHelper.SendData(data[0..8]);
-        else
-            print("Arduino not available");
-    }
+    private static void SendData(float m1, float m2) => BluetoothHandler.SendData(m1, m2);
 
 
 }

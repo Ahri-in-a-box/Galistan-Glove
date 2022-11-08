@@ -413,6 +413,7 @@
 "Assets/Imports/ThirdParty/VirtualGrasp/Scripts/VG_HintVisualizer.cs"
 "Assets/Imports/ThirdParty/VirtualGrasp/Scripts/VG_PostAnimator.cs"
 "Assets/_Scripts/Apples.cs"
+"Assets/_Scripts/BluetoothHandler.cs"
 "Assets/_Scripts/BubbleBehavior.cs"
 "Assets/_Scripts/BucketBehavior.cs"
 "Assets/_Scripts/CollectorBucketBehavior.cs"
