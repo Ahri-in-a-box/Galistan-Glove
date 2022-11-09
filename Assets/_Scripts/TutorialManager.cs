@@ -4,10 +4,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private GameObject tpPanel;
+    [SerializeField] private GameObject grabPanel1;
+    [SerializeField] private GameObject grabPanel2;
+    [SerializeField] private GameObject menuPanel;
     public enum TutorialState
     {
         TELEPORT,
-        OBJECT,
+        OBJECT1,
+        OBJECT2,
         BLUETOOTH,
         SWAP_SCENE
     }
@@ -32,16 +36,26 @@ public class TutorialManager : MonoBehaviour
     {
         if(State == TutorialState.TELEPORT)
         {
-            State = TutorialState.OBJECT;
+            State = TutorialState.OBJECT1;
             tpPanel.SetActive(false);
+            grabPanel1.SetActive(true);
         }
     }
 
-    public void OnObjectTaken(SelectEnterEventArgs args)
+    public void OnObjectTaken(int val)
     {
-        if(State == TutorialState.OBJECT)
+        if(State == TutorialState.OBJECT1 && val == 1)
         {
+            State = TutorialState.OBJECT2;
+            grabPanel1.SetActive(false);
+            grabPanel2.SetActive(true);
+        }
 
+        if(State == TutorialState.OBJECT2 && val == 2)
+        {
+            State = TutorialState.SWAP_SCENE;
+            grabPanel2.SetActive(false);
+            menuPanel.SetActive(true);
         }
     }
 
