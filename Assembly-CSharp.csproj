@@ -85,6 +85,7 @@
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityInteractionHand.cs" />
     <Compile Include="Assets\_Scripts\CollectorBucketBehavior.cs" />
     <Compile Include="Assets\_Scripts\HandControl.cs" />
+    <Compile Include="Assets\_Scripts\BluetoothHandler.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ToggleLight.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BLEServicesManager.cs" />
     <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
     <Compile Include="Assets\_Scripts\DummyBehavior.cs" />
-    <Compile Include="Assets\_Scripts\BluetoothHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

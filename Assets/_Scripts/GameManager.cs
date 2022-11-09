@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     }
     public static GameManager Instance;
 
-    public bool scene = true;
-
     [SerializeField] private GameObject questObjects;
     [SerializeField] private GameObject dummy;
     [SerializeField] private GameObject bubbleBackground;
