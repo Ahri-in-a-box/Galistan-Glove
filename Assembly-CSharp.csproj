@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\SphereContRot.cs" />
+    <Compile Include="Assets\_Scripts\TutorialManager.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_Highlighter.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\MyVirtualGrasp.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ToggleLight.cs" />
+    <Compile Include="Assets\_Scripts\ArrowBehavior.cs" />
     <Compile Include="Assets\Imports\Low Poly Fruits\resources\fruits_tester.cs" />
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\manager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_PostAnimator.cs" />

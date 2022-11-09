@@ -413,6 +413,7 @@
 "Assets/Imports/ThirdParty/VirtualGrasp/Scripts/VG_HintVisualizer.cs"
 "Assets/Imports/ThirdParty/VirtualGrasp/Scripts/VG_PostAnimator.cs"
 "Assets/_Scripts/Apples.cs"
+"Assets/_Scripts/ArrowBehavior.cs"
 "Assets/_Scripts/BluetoothHandler.cs"
 "Assets/_Scripts/BubbleBehavior.cs"
 "Assets/_Scripts/BucketBehavior.cs"
@@ -423,6 +424,7 @@
 "Assets/_Scripts/HandControl.cs"
 "Assets/_Scripts/TestBluetooth.cs"
 "Assets/_Scripts/TreeBehavior.cs"
+"Assets/_Scripts/TutorialManager.cs"
 "Assets/_Scripts/UserInterfaceManager.cs"
 -langversion:9.0
 

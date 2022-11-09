@@ -3,6 +3,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TutorialManager : MonoBehaviour
 {
+    [SerializeField] private GameObject tpPanel;
     public enum TutorialState
     {
         TELEPORT,
@@ -32,7 +33,7 @@ public class TutorialManager : MonoBehaviour
         if(State == TutorialState.TELEPORT)
         {
             State = TutorialState.OBJECT;
-            //Apply UI and object modifications
+            tpPanel.SetActive(false);
         }
     }
 
