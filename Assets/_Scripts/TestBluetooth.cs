@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TestBluetooth : MonoBehaviour
 {
-    public static TestBluetooth BTHInstance = new TestBluetooth();
+    public static TestBluetooth BTHInstance = new();
     [SerializeField] private Transform RHController;
     private static Transform rightHandController;
 
@@ -57,9 +57,8 @@ public class TestBluetooth : MonoBehaviour
 
         
             print($"m1: {m1}, m2: {m2}, x: {x}, alpha: {alpha}");
-        
-            SendData(m1, m2);
-        
+
+            BluetoothHandler.SendData(m1, m2);
         }
 
     }
@@ -79,10 +78,6 @@ public class TestBluetooth : MonoBehaviour
     {
         props = null;
         if (args.interactableObject.transform.tag != "Ground")
-            SendData(0, 0);
+            BluetoothHandler.SendData(0, 0);
     }
-
-    private static void SendData(float m1, float m2) => BluetoothHandler.SendData(m1, m2);
-
-
 }
