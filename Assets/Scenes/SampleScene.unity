@@ -5953,6 +5953,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4708353823052640, guid: 6c13e05b322474b1b9e5e64a664694d7, type: 3}
   m_PrefabInstance: {fileID: 931593514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &959177998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8131434683920975642, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
+  m_PrefabInstance: {fileID: 1393051057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &960995760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9071,6 +9082,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8131434683463095677, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
   m_PrefabInstance: {fileID: 1393051057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1393051059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8131434684657223932, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
+  m_PrefabInstance: {fileID: 1393051057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1425394599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11735,13 +11751,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c1182f164fdc74584ddc9ec20ef5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1
   questObjects: {fileID: 2021571985}
   dummy: {fileID: 1868799863}
   bubbleBackground: {fileID: 1478178293}
   player: {fileID: 92920529}
   bubble: {fileID: 1654012648}
-  hints: {fileID: 0}
+  hints: {fileID: 959177998}
   m_GameState: 0
 --- !u!4 &1706829566
 Transform:
@@ -12848,7 +12863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  menu: {fileID: 0}
+  menu: {fileID: 1393051059}
 --- !u!95 &1809305101
 Animator:
   serializedVersion: 4

@@ -46,7 +46,7 @@ public class TutorialManager : MonoBehaviour
                 grabPanel2.SetActive(true);
             }
 
-            if (State == TutorialState.OBJECT2)
+            else if (State == TutorialState.OBJECT2)
             {
                 State = TutorialState.SWAP_SCENE;
                 grabPanel2.SetActive(false);
