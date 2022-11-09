@@ -18,6 +18,7 @@ public class TutorialManager : MonoBehaviour
 
     static public TutorialManager Instance { get; private set; }
     public TutorialState State { get; private set; }
+    private System.Diagnostics.Stopwatch m_Stopwatch = null;
 
     void Awake()
     {
@@ -27,9 +28,31 @@ public class TutorialManager : MonoBehaviour
             Instance = this;
 
         State = TutorialState.TELEPORT;
+        m_Stopwatch = new();
 
         //Events here
         BluetoothHandler.OnStateChange += OnBluetoothChange;
+    }
+
+    void FixedUpdate()
+    {
+        if(m_Stopwatch.IsRunning && m_Stopwatch.ElapsedMilliseconds / 1000 >= 2)
+        {
+            m_Stopwatch.Reset();
+            if (State == TutorialState.OBJECT1)
+            {
+                State = TutorialState.OBJECT2;
+                grabPanel1.SetActive(false);
+                grabPanel2.SetActive(true);
+            }
+
+            if (State == TutorialState.OBJECT2)
+            {
+                State = TutorialState.SWAP_SCENE;
+                grabPanel2.SetActive(false);
+                menuPanel.SetActive(true);
+            }
+        }
     }
 
     public void OnTeleportationInArea()
@@ -44,19 +67,15 @@ public class TutorialManager : MonoBehaviour
 
     public void OnObjectTaken(int val)
     {
-        if(State == TutorialState.OBJECT1 && val == 1)
-        {
-            State = TutorialState.OBJECT2;
-            grabPanel1.SetActive(false);
-            grabPanel2.SetActive(true);
-        }
+        if((State == TutorialState.OBJECT1 && val == 1) || (State == TutorialState.OBJECT2 && val == 2))
+            if(!m_Stopwatch.IsRunning)
+                m_Stopwatch.Start();
+    }
 
-        if(State == TutorialState.OBJECT2 && val == 2)
-        {
-            State = TutorialState.SWAP_SCENE;
-            grabPanel2.SetActive(false);
-            menuPanel.SetActive(true);
-        }
+    public void OnObjectReleased(int val)
+    {
+        if ((State == TutorialState.OBJECT1 && val == 1) || (State == TutorialState.OBJECT2 && val == 2))
+            m_Stopwatch.Reset();
     }
 
     public void OnBluetoothChange()
