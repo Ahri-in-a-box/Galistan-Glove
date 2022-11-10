@@ -91,22 +91,18 @@ void setup() {
   //Set target position to 0;
   Po1 = 0;
   Po2 = 0;
-
-  //while(SerialBT.available() <= 0) delay(100);
-  //while (del == 65535);
 }
 
 void loop() {
 
+  //Check for bluetooth data
   OnRX();
 
+  //update motors target position
   M1.moveTo(Po1);
   M2.moveTo(Po2);
 
+  //make motors perform a step if necessary
   M1.run();
   M2.run();
-
-  //envoi information E2
-
-  //delayMicroseconds(1000);
 }
