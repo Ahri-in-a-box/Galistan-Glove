@@ -33,13 +33,17 @@ void OnRX() {
   ushort m1, m2, a;
   float l1, l2;
 
+  //only read data if available is at least one packet long
   while (SerialBT.available() >= 8) {
+
+    //only read data if packet start with 0x42 and Ox69
     if (SerialBT.read() != 0x42)
       continue;
 
     if (SerialBT.read() != 0x69)
       continue;
 
+    //read 2 bytes fields (unsigned short) in the packet
     m1 = SerialBT.read() | SerialBT.read() << 8;
     m2 = SerialBT.read() | SerialBT.read() << 8;
 
