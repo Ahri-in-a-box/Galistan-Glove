@@ -27,7 +27,7 @@ AccelStepper M1 = AccelStepper(AccelStepper::DRIVER, PUL1, DIR1, -1, -1, true);
 AccelStepper M2 = AccelStepper(AccelStepper::DRIVER, PUL2, DIR2, -1, -1, true);
 
 //How much ml we inject per step of a motor
-#define MLPERSTEP 0.007038;
+#define MLPERSTEP 0.017595; //ancien pas de vis : 0.007038;
 
 void OnRX() {
   ushort m1, m2, a;
