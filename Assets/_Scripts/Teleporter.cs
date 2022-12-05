@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Teleporter : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class Teleporter : MonoBehaviour
     public GameObject player;
     public GameObject Cube;
     public Rigidbody rb;
+    public XRSocketInteractor attach;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         rb.useGravity = false;
+        attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
     }
 
     /// <summary>
@@ -59,8 +62,6 @@ public class Teleporter : MonoBehaviour
     //    transform.position = GetMouseAsWorldPoint() + mOffset;
     //}
 
-
-
     void OnCollisionEnter(Collision collision)
     {
         if (!active)
@@ -75,9 +76,13 @@ public class Teleporter : MonoBehaviour
             Debug.Log("Boom");
             active = false;
             player.transform.position = position;
-            Instantiate(Cube, new Vector3(position.x, 0.7f, position.z + 0.3f), rotation);
+            //Vector3 newPos = attach.position;
+            //Instantiate(Cube, new Vector3(position.x, 0.7f, position.z + 0.3f), rotation);
+            //Instantiate(Cube, new Vector3(newPos.x + 0.06f, newPos.y - 0.02f, newPos.z - 0.15f), rotation).transform.SetParent(attach);
+            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
+
             // Instantiate(explosionPrefab, position, rotation);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

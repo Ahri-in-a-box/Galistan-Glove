@@ -130,6 +130,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Imports\BluetoothAPI\changelogs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Shaders\GhostlyHand.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Imports\MegaPack1Lite\TropicalIslandPack1\README.txt" />
     <None Include="Assets\Imports\MegaPack1Lite\EnchantedForestPack1\README.txt" />
