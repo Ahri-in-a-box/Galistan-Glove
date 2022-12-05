@@ -104,6 +104,10 @@
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BLEServicesManager.cs" />
     <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
     <Compile Include="Assets\_Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\_Scripts\Teleporter.cs" />
+    <Compile Include="Assets\_Scripts\HandPresencePhysics.cs" />
+    <Compile Include="Assets\Oculus Hands Physics\Scripts\HandPresence.cs" />
+    <Compile Include="Assets\_Scripts\HandPresencePhysics_.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
