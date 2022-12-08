@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class Hand_ : MonoBehaviour
 {
+    
+
 
     Animator animator;
     public float speed;
@@ -88,7 +90,7 @@ public class Hand_ : MonoBehaviour
         
         if(thumbCurrent != thumbTarget)
         {
-            thumbCurrent = Mathf.MoveTowards(thumbCurrent, thumbTarget, Time.deltaTime * speed);
+            thumbCurrent = Mathf.MoveTowards(thumbCurrent, 1.2f * thumbTarget, Time.deltaTime * speed);
             animator.SetFloat("Thumb", thumbCurrent);
         }
     }

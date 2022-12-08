@@ -28,15 +28,7 @@ public class HandPresence_ : MonoBehaviour
 
     void UpdateHandAnimation()
     {
-        if(targetDevice.TryGetFeatureValue(CommonUsages.indexFinger, out float indexValue))
-        {
-            print("print :D");
-        }
-        else
-        {
-            print("print >:(");
-
-        }
+     
 
         if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {

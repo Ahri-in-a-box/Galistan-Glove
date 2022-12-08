@@ -8,7 +8,8 @@ public class HandControl_ : MonoBehaviour
     private ActionBasedController controller;
     public Hand_ hand;
 
-    [SerializeField] private HandGetter handParent;
+    [Range(0.0f, 1.0f)]
+    public float curl1;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,19 @@ public class HandControl_ : MonoBehaviour
         //hand.SetThumb(controller.selectAction.action.ReadValue<float>());
         //hand.SetPinky(controller.selectAction.action.ReadValue<float>());
 
-        hand.SetIndex(handParent.Curls[1]);
-        hand.SetMiddle(handParent.Curls[2]);
-        hand.SetRing(handParent.Curls[3]);
-        hand.SetPinky(handParent.Curls[4]);
-        hand.SetThumb(handParent.Curls[0]);
-        //print(handParent.Curls[0]);
+        hand.SetIndex(curl1);
     }
-    
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(curl1 > 0.4f && other.gameObject.GetComponent<XRGrabInteractable>().isActiveAndEnabled)
+        {
+            GetComponent<XRDirectInteractor>().StartManualInteraction(other.GetComponent<IXRSelectInteractable>());
+        }
+        else 
+        { 
+            GetComponent<XRDirectInteractor>().EndManualInteraction();            
+        }
+    }
 }

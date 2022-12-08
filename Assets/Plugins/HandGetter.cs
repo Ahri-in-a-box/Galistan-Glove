@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.OpenXR;
+
 
 public class HandGetter : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class HandGetter : MonoBehaviour
     public Quaternion[] orientations;
     public Transform[] joints;
     public float[] radius;
+    public GameObject controller;
 
     public HandTrackingFeature.Hand_Index HandIndex;
 
@@ -175,4 +178,19 @@ public class HandGetter : MonoBehaviour
             angle -= 360f;
         return angle;
     }
+
+    public void OnTriggerStay(Collider other)    {
+        if(Curls[2]>0.4)
+        {
+            Debug.Log("I wis I knw AZERTY");
+            controller.GetComponent<ActionBasedController>().selectAction.action.Enable();
+            controller.GetComponent<XRDirectInteractor>().interactionManager.SelectEnter(controller.GetComponent<XRDirectInteractor>(), other.GetComponent<XRGrabInteractable>());
+        //    controller.GetComponent<XRDirectInteractor>().interactionManager.ForceSelect(controller.GetComponent<XRDirectInteractor>(), other.GetComponent<XRGrabInteractable>());
+        }
+
+       // controller.GetComponent<XRController>().activateUsage;
+        
+    }
+
+     
 }
