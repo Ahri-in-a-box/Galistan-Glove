@@ -157,6 +157,7 @@ MonoBehaviour:
   features:
   - {fileID: -7036620872746861871}
   - {fileID: 6039825771409817911}
+  - {fileID: 5910059107487801542}
   - {fileID: -50608109398661053}
   - {fileID: -4106765076739264544}
   - {fileID: 958737859900979681}
@@ -281,6 +282,7 @@ MonoBehaviour:
   features:
   - {fileID: 6768161717004035195}
   - {fileID: 4964204814055309053}
+  - {fileID: 5068159462167693609}
   - {fileID: -8026000966957487502}
   - {fileID: 6597670771123878779}
   - {fileID: -929486011647968584}
@@ -328,6 +330,26 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &5068159462167693609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89963d7f9b700e49b77a5723efe91e5, type: 3}
+  m_Name: HandTrackingFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Hand tracking Extension
+  version: 0.0.1
+  featureIdInternal: com.joemarshall.handtracking
+  openxrExtensionStrings: XR_EXT_hand_tracking
+  company: Joe M
+  priority: 0
+  required: 0
 --- !u!114 &5803865851673594045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +368,26 @@ MonoBehaviour:
   featureIdInternal: com.unity.openxr.feature.input.microsoftmotioncontroller
   openxrExtensionStrings: 
   company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &5910059107487801542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89963d7f9b700e49b77a5723efe91e5, type: 3}
+  m_Name: HandTrackingFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 1
+  nameUi: Hand tracking Extension
+  version: 0.0.1
+  featureIdInternal: com.joemarshall.handtracking
+  openxrExtensionStrings: XR_EXT_hand_tracking
+  company: Joe M
   priority: 0
   required: 0
 --- !u!114 &6039825771409817911
