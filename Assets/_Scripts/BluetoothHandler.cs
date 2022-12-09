@@ -21,6 +21,10 @@ public static class BluetoothHandler
     public delegate void StateChange();
     public static event StateChange OnStateChange = null;
 
+    public delegate void DataReceived(byte[] data);
+    public static event DataReceived OnDataReceived = null;
+
+
     public static void Init()
     {
         if (init)
@@ -42,7 +46,7 @@ public static class BluetoothHandler
 
     private static void BTHelper_OnDataReceived()
     {
-
+        OnDataReceived?.Invoke(BTHelper.ReadBytes());
     }
 
     private static void BTHelper_OnConnected()

@@ -4,30 +4,58 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(ActionBasedController))]
 public class HandControl_ : MonoBehaviour
 {
-
-    private ActionBasedController controller;
     public Hand_ hand;
+    public Hand_ handPhysics;
 
-    [Range(0.0f, 1.0f)]
-    public float curl1;
+    private float curl0;
+    private float curl1;
+    private float curl2;
+    private float curl3;
+    private float curl4;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<ActionBasedController>();
+        BluetoothHandler.OnDataReceived += ReadCurls;
+    }
+
+    private void ReadCurls(byte[] data)
+    {
+        if (data.Length != 8)
+        {
+            print($"curl's length : {data.Length}");
+            return;
+        }
+
+        if (data[0] != 0x42 || data[1] != 0x69)
+        {
+            print($"data : {data[0]} data[1] : {data[1]}");
+            return;
+        }
+
+        curl0 = data[2] / 255.0f;
+        curl1 = data[3] / 255.0f;
+        curl2 = data[4] / 255.0f;
+        curl3 = data[5] / 255.0f;
+        curl4 = data[6] / 255.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //print(curl0 + " " + curl1 + " " + curl2 + " " + curl3 + " " + curl4);
 
-        //hand.SetIndex(controller.activateAction.action.ReadValue<float>());
-        //hand.SetMiddle(controller.selectAction.action.ReadValue<float>());
-        //hand.SetRing(controller.selectAction.action.ReadValue<float>());
-        //hand.SetThumb(controller.selectAction.action.ReadValue<float>());
-        //hand.SetPinky(controller.selectAction.action.ReadValue<float>());
-
+        hand.SetThumb(curl0);
+        handPhysics.SetThumb(curl0);
         hand.SetIndex(curl1);
+        handPhysics.SetIndex(curl1);
+        hand.SetMiddle(curl2);
+        handPhysics.SetMiddle(curl2);
+        hand.SetRing(curl3);
+        handPhysics.SetRing(curl3);
+        hand.SetPinky(curl4);
+        handPhysics.SetPinky(curl4);
+
     }
 
 
@@ -41,5 +69,10 @@ public class HandControl_ : MonoBehaviour
         { 
             GetComponent<XRDirectInteractor>().EndManualInteraction();            
         }
+    }
+
+    private void OnDestroy()
+    {
+        BluetoothHandler.OnDataReceived -= ReadCurls;
     }
 }

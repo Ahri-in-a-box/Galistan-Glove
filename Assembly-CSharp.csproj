@@ -72,7 +72,6 @@
     <Compile Include="Assets\_Scripts\TestBluetooth.cs" />
     <Compile Include="Assets\_Scripts\Hand.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
-    <Compile Include="Assets\_Scripts\HandFromTracking.cs" />
     <Compile Include="Assets\_Scripts\UserInterfaceManager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SoundOnGraspEvents.cs" />
@@ -82,6 +81,7 @@
     <Compile Include="Assets\_Scripts\Teleporter.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SimpleImpact.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\DissembleWithDistance.cs" />
+    <Compile Include="Assets\Oculus Hands Physics\Animations\FingerByFinger\Hand_.cs" />
     <Compile Include="Assets\Oculus Hands Physics\Scripts\HandPresence_.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ManageContainerObject.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HandStatusDebugger.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_LeapHand.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityInteractionHand.cs" />
     <Compile Include="Assets\_Scripts\CollectorBucketBehavior.cs" />
+    <Compile Include="Assets\Oculus Hands Physics\Animations\FingerByFinger\HandControl_.cs" />
     <Compile Include="Assets\_Scripts\HandControl.cs" />
     <Compile Include="Assets\_Scripts\HandPresencePhysics_.cs" />
     <Compile Include="Assets\_Scripts\BluetoothHandler.cs" />
@@ -110,8 +111,6 @@
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BLEServicesManager.cs" />
     <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
     <Compile Include="Assets\_Scripts\DummyBehavior.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Animations\FingerByFinger\Hand_.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Animations\FingerByFinger\HandControl_.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -933,10 +932,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{A3CA5C0C-0921-A985-8840-6CF6DC5D1920}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="Dependencies.csproj">
       <Project>{7B1EA963-D4E3-149A-10AE-AB40F439DA37}</Project>
       <Name>Dependencies</Name>

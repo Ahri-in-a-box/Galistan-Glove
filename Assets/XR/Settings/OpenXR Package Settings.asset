@@ -157,7 +157,6 @@ MonoBehaviour:
   features:
   - {fileID: -7036620872746861871}
   - {fileID: 6039825771409817911}
-  - {fileID: 5910059107487801542}
   - {fileID: -50608109398661053}
   - {fileID: -4106765076739264544}
   - {fileID: 958737859900979681}
@@ -282,7 +281,6 @@ MonoBehaviour:
   features:
   - {fileID: 6768161717004035195}
   - {fileID: 4964204814055309053}
-  - {fileID: 5068159462167693609}
   - {fileID: -8026000966957487502}
   - {fileID: 6597670771123878779}
   - {fileID: -929486011647968584}
@@ -343,6 +341,7 @@ MonoBehaviour:
   m_Name: HandTrackingFeature Android
   m_EditorClassIdentifier: 
   m_enabled: 0
+  <failedInitialization>k__BackingField: 0
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
@@ -350,6 +349,11 @@ MonoBehaviour:
   company: Joe M
   priority: 0
   required: 0
+  curr_instanceid: 0
+  curr_session: 0
+  frame_time: 0
+  handle_left: 0
+  handle_right: 0
 --- !u!114 &5803865851673594045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +387,7 @@ MonoBehaviour:
   m_Name: HandTrackingFeature Standalone
   m_EditorClassIdentifier: 
   m_enabled: 1
+  <failedInitialization>k__BackingField: 0
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
@@ -390,6 +395,11 @@ MonoBehaviour:
   company: Joe M
   priority: 0
   required: 0
+  curr_instanceid: 0
+  curr_session: 0
+  frame_time: 190539567453538
+  handle_left: 0
+  handle_right: 0
 --- !u!114 &6039825771409817911
 MonoBehaviour:
   m_ObjectHideFlags: 0
