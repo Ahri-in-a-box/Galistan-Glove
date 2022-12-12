@@ -1,14 +1,14 @@
-//number of steps that the stepper motor need to reach
-uint32_t Po1, Po2;
+//end switch
+#define SW0 32
+#define SW1 33
 
-//Driver (pin a  changer)
-#define PUL1 27  //Pulse pin
-#define DIR1 26  //Direction pin (LOW = forward, HIGH = backward)
-#define ENA1 25  //enable pin
+#define PUL0 27 //Pulse pin
+#define DIR0 26 //Direction pin
+#define ENA0 25 //enable pin
 
-#define PUL2 32  //Pulse pin
-#define DIR2 12  //Direction pin (LOW = forward, HIGH = backward)
-#define ENA2 34  //enable pin
+#define PUL1 21  //Pulse pin
+#define DIR1 19  //Direction pin
+#define ENA1 18  //enable pin
 
 //number of steps to make 1/200 of a turn
 #define MicroStep 32
@@ -23,11 +23,14 @@ uint32_t Po1, Po2;
 BluetoothSerial SerialBT = BluetoothSerial();
 
 //Definition of our two stepper motors
+AccelStepper M0 = AccelStepper(AccelStepper::DRIVER, PUL0, DIR0, -1, -1, true);
 AccelStepper M1 = AccelStepper(AccelStepper::DRIVER, PUL1, DIR1, -1, -1, true);
-AccelStepper M2 = AccelStepper(AccelStepper::DRIVER, PUL2, DIR2, -1, -1, true);
 
 //How much ml we inject per step of a motor
-#define MLPERSTEP 0.007038;
+#define MLPERSTEP 0.017595
+
+//number of steps that the stepper motor need to reach
+uint32_t Po1, Po2;
 
 void OnRX() {
   ushort m1, m2, a;
@@ -61,11 +64,11 @@ void OnRX() {
     l2 /= MLPERSTEP;
 
     //prevent the motors from pushing beyond the end
-    if (l1 > 25000)
-      l1 = 25000;
+    if (l1 > 11000)
+      l1 = 11000;
     
-    if (l2 > 25000)
-      l2 = 25000;
+    if (l2 > 11000)
+      l2 = 11000;
 
     //Multiply the number of step by the microstepping factor and set it as objective
     Po1 = (uint32_t)l1 * MicroStep;
@@ -74,27 +77,66 @@ void OnRX() {
 }
 
 void setup() {
-  // put your setup code here, to run once:
+  
+  //configure switch as input pullup so that 0 = unpressed, 1 = pressed
+  pinMode(SW0, INPUT_PULLUP);
+  pinMode(SW1, INPUT_PULLUP);
+
+  //blue led on the board
+  pinMode(LED_BUILTIN, OUTPUT);
 
   //enable drivers
+  pinMode(ENA0, OUTPUT);
   pinMode(ENA1, OUTPUT);
-  pinMode(ENA2, OUTPUT);
-  digitalWrite(ENA1, LOW);
-  digitalWrite(ENA2, LOW);
+  digitalWrite(ENA0, HIGH);
+  digitalWrite(ENA1, HIGH);
 
-  //Set speed of motors and acceleration
-  M1.setMaxSpeed(2800 * MicroStep);
-  M2.setMaxSpeed(2800 * MicroStep);
-  M1.setAcceleration(250 * MicroStep);
-  M2.setAcceleration(250 * MicroStep);
+  //Set acceleration for smooth actuation
+  M0.setAcceleration(300 * MicroStep);
+  M1.setAcceleration(300 * MicroStep);
 
   //Enable bluetooth
   SerialBT.begin("Galistan-Glove");  //Bluetooth device name
   SerialBT.enableSSP();
 
+  //Perform one home
+  HomeActuators();
+
+  //Set speed of motors and acceleration
+  M1.setMaxSpeed(2800 * MicroStep);
+  M2.setMaxSpeed(2800 * MicroStep);
   //Set target position to 0;
   Po1 = 0;
   Po2 = 0;
+}
+
+// Used to home the two linear actuators
+void HomeActuators()
+{
+  //Set low speed to home with more precision
+  M0.setMaxSpeed(500 * MicroStep);
+  M1.setMaxSpeed(500 * MicroStep);
+
+  //Move a lot to be sure to reach end of the actuator
+  M0.moveTo(20000 * MicroStep);
+  M1.moveTo(20000 * MicroStep);
+
+  //make motor run while the switch are not pressed
+  while (!digitalRead(SW0) || !digitalRead(SW1))
+  {
+    //turn led on or off according to switch state (used to check that the switches work)
+    digitalWrite(LED_BUILTIN, digitalRead(SW0) ^ digitalRead(SW1));
+
+    if (!digitalRead(SW0))
+      M0.run();
+
+    if (!digitalRead(SW1))
+      M1.run();
+  }
+
+  //Set the position so that 0 = 60ml of liquid in the seringe
+  M0.setCurrentPosition(11000 * MicroStep);
+  M1.setCurrentPosition(11000 * MicroStep);
 }
 
 void loop() {
@@ -102,11 +144,14 @@ void loop() {
   //Check for bluetooth data
   OnRX();
 
+  //turn led on or off according to switch state (used to check that the switches work)
+  digitalWrite(LED_BUILTIN, digitalRead(SW0) ^ digitalRead(SW1));
+
   //update motors target position
-  M1.moveTo(Po1);
-  M2.moveTo(Po2);
+  M0.moveTo(Po1);
+  M1.moveTo(Po2);
 
   //make motors perform a step if necessary
+  M0.run();
   M1.run();
-  M2.run();
 }
