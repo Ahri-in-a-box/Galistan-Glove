@@ -30,11 +30,11 @@ AccelStepper M1 = AccelStepper(AccelStepper::DRIVER, PUL1, DIR1, -1, -1, true);
 #define MLPERSTEP 0.017595
 
 //number of steps that the stepper motor need to reach
-uint32_t Po1, Po2;
+uint32_t Po0, Po1;
 
 void OnRX() {
-  ushort m1, m2, a;
-  float l1, l2;
+  ushort m0, m1, a;
+  float l0, l1;
 
   //only read data if available is at least one packet long
   while (SerialBT.available() >= 8) {
@@ -47,32 +47,32 @@ void OnRX() {
       continue;
 
     //read 2 bytes fields (unsigned short) in the packet
+    m0 = SerialBT.read() | SerialBT.read() << 8;
     m1 = SerialBT.read() | SerialBT.read() << 8;
-    m2 = SerialBT.read() | SerialBT.read() << 8;
 
     //not Used
     a = SerialBT.read() | SerialBT.read() << 8;
 
+    m0 /=3;
     m1 /=3;
-    m2 /=3;
 
     //convert grams sent by unity to steps
+    l0 = m0 / 6.44f;
+    l0 /= MLPERSTEP;
+
     l1 = m1 / 6.44f;
     l1 /= MLPERSTEP;
 
-    l2 = m2 / 6.44f;
-    l2 /= MLPERSTEP;
-
     //prevent the motors from pushing beyond the end
+    if (l0 > 11000)
+      l0 = 11000;
+    
     if (l1 > 11000)
       l1 = 11000;
-    
-    if (l2 > 11000)
-      l2 = 11000;
 
     //Multiply the number of step by the microstepping factor and set it as objective
+    Po0 = (uint32_t)l0 * MicroStep;
     Po1 = (uint32_t)l1 * MicroStep;
-    Po2 = (uint32_t)l2 * MicroStep;
   }
 }
 
@@ -103,11 +103,11 @@ void setup() {
   HomeActuators();
 
   //Set speed of motors and acceleration
+  M0.setMaxSpeed(2800 * MicroStep);
   M1.setMaxSpeed(2800 * MicroStep);
-  M2.setMaxSpeed(2800 * MicroStep);
   //Set target position to 0;
+  Po0 = 0;
   Po1 = 0;
-  Po2 = 0;
 }
 
 // Used to home the two linear actuators
@@ -148,8 +148,8 @@ void loop() {
   digitalWrite(LED_BUILTIN, digitalRead(SW0) ^ digitalRead(SW1));
 
   //update motors target position
-  M0.moveTo(Po1);
-  M1.moveTo(Po2);
+  M0.moveTo(Po0);
+  M1.moveTo(Po1);
 
   //make motors perform a step if necessary
   M0.run();
