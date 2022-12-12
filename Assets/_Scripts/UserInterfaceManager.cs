@@ -1,17 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UserInterfaceManager : MonoBehaviour
 {
-    [SerializeField] private Button menu;
-    [SerializeField] private GameObject panel;
-    [SerializeField] private GameObject sampleScene;
-    [SerializeField] private GameObject testScene;
-    [SerializeField] private GameObject galinstan;
+    [SerializeField] private TextMeshProUGUI status;
+    [SerializeField] private UnityEngine.UI.Button btn;
 
     private bool isActive = false;
 
@@ -28,24 +22,20 @@ public class UserInterfaceManager : MonoBehaviour
         switch (BluetoothHandler.state)
         {
             case BluetoothHandler.BLState.Connected:
-                galinstan.GetComponentInChildren<TextMeshProUGUI>().text = "Disconnect";
-                galinstan.GetComponentInChildren<Button>().enabled = true;
+                status.text = "Disconnect";
+                btn.enabled = true;
                 break;
             case BluetoothHandler.BLState.Disconnected:
-                galinstan.GetComponentInChildren<TextMeshProUGUI>().text = "Connect";
-                galinstan.GetComponentInChildren<Button>().enabled = true;
+                status.text = "Connect";
+                btn.enabled = true;
                 break;
             case BluetoothHandler.BLState.Connecting:
-                galinstan.GetComponentInChildren<TextMeshProUGUI>().text = "Connecting...";
-                galinstan.GetComponentInChildren<Button>().enabled = false;
+                status.text = "Connecting...";
+                btn.enabled = false;
                 break;
         }
     }
 
-    private void Start()
-    {
-
-    }
     public void OnMenuPressed(GameObject panel)
     {
         panel.SetActive(isActive = !isActive);

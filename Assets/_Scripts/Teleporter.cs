@@ -73,7 +73,6 @@ public class Teleporter : MonoBehaviour
             ContactPoint contact = collision.contacts[0];
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 position = contact.point;
-            Debug.Log("Boom");
             active = false;
             player.transform.position = position;
             //Vector3 newPos = attach.position;

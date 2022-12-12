@@ -7,12 +7,11 @@ public class HandControl_ : MonoBehaviour
     public Hand_ hand;
     public Hand_ handPhysics;
 
-    private float curl0;
-    private float curl1;
-    private float curl2;
-    private float curl3;
-    private float curl4;
-
+    public float curl0;
+    public float curl1;
+    public float curl2;
+    public float curl3;
+    public float curl4;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,11 +60,14 @@ public class HandControl_ : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(curl1 > 0.4f && other.gameObject.GetComponent<XRGrabInteractable>().isActiveAndEnabled)
+        XRGrabInteractable var = other.gameObject.GetComponent<XRGrabInteractable>();
+        if (var is null)
+            return;
+        if(curl1 > 0.4f && var.isActiveAndEnabled)
         {
             GetComponent<XRDirectInteractor>().StartManualInteraction(other.GetComponent<IXRSelectInteractable>());
         }
-        else 
+        else
         { 
             GetComponent<XRDirectInteractor>().EndManualInteraction();            
         }

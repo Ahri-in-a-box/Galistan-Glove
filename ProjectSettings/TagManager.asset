@@ -9,6 +9,7 @@ TagManager:
   - Tool
   - Container
   - Apple
+  - Index
   layers:
   - Default
   - TransparentFX

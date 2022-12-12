@@ -527,7 +527,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516612311310259345}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -1231,11 +1231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f712774bc102e4bb5e271bef9fe14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 8131434684657223934}
-  panel: {fileID: 8131434684099159158}
-  sampleScene: {fileID: 3788067651559906476}
-  testScene: {fileID: 472403929717691452}
-  galinstan: {fileID: 4516612311310259345}
+  status: {fileID: 8892167556569812090}
+  btn: {fileID: 250730582633966069}
 --- !u!114 &8131434683463095679
 MonoBehaviour:
   m_ObjectHideFlags: 0
