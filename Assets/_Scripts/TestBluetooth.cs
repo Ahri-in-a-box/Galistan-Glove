@@ -35,6 +35,9 @@ public class TestBluetooth : MonoBehaviour
             if (simpleMode)
             {
                 BluetoothHandler.SendData(((float)mass) / 2.0f, ((float)mass) / 2.0f);
+
+                print((float)mass / 2.0f);
+
                 return;
             }
 
@@ -65,7 +68,7 @@ public class TestBluetooth : MonoBehaviour
             m2 = (float)mass * (1-ratio);
 
         
-            //print($"m1: {m1}, m2: {m2}, x: {x}, alpha: {alpha}");
+            print($"m1: {m1}, m2: {m2}, x: {x}, alpha: {alpha}");
 
             BluetoothHandler.SendData(m1, m2);
         }

@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Diagnostics;
 
 public class Teleporter : MonoBehaviour
 {
@@ -14,6 +13,8 @@ public class Teleporter : MonoBehaviour
     public Rigidbody rb;
     public XRSocketInteractor attach;
 
+    private Stopwatch timer = new();
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,42 +26,30 @@ public class Teleporter : MonoBehaviour
     /// <summary>
     /// Used with mouse to be removed
     /// </summary>
+    
+    public void OnGrabEnter()
+    {
+        timer.Reset();
+    }
     public void OnGrabExited()
     {
-        //mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-
-        //// Store offset = gameobject world pos - mouse world pos
-        //mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
-
         active = true;
         rb.isKinematic = false;
         rb.useGravity = true;
+
+        timer.Start();
+
     }
 
-    /// <summary>
-    /// Used with mouse to be removed
-    /// </summary>
-    /// <returns></returns>
-    //private Vector3 GetMouseAsWorldPoint()
-    //{
-    //    // Pixel coordinates of mouse (x,y)
-    //    Vector3 mousePoint = Input.mousePosition;
-
-    //    // z coordinate of game object on screen
-    //    mousePoint.z = mZCoord;
-
-    //    // Convert it to world points
-    //    return Camera.main.ScreenToWorldPoint(mousePoint);
-    //}
-
-    /// <summary>
-    /// Used with mouse to be removed
-    /// </summary>
-    /// <returns></returns>
-    //void OnMouseDrag()
-    //{
-    //    transform.position = GetMouseAsWorldPoint() + mOffset;
-    //}
+    private void FixedUpdate()
+    {
+        if(timer.ElapsedMilliseconds >= 5000.0f)
+        {
+            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
+            timer.Reset();
+        }
+    }
+  
 
     void OnCollisionEnter(Collision collision)
     {
@@ -75,13 +64,8 @@ public class Teleporter : MonoBehaviour
             Vector3 position = contact.point;
             active = false;
             player.transform.position = position;
-            //Vector3 newPos = attach.position;
-            //Instantiate(Cube, new Vector3(position.x, 0.7f, position.z + 0.3f), rotation);
-            //Instantiate(Cube, new Vector3(newPos.x + 0.06f, newPos.y - 0.02f, newPos.z - 0.15f), rotation).transform.SetParent(attach);
-            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
 
-            // Instantiate(explosionPrefab, position, rotation);
-            //Destroy(gameObject);
+            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
         }
     }
 
