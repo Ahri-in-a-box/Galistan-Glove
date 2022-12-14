@@ -14,6 +14,8 @@ public class TestBluetooth : MonoBehaviour
 
     private GameObject props;
 
+    public bool simpleMode = false;
+
     private void Awake()
     {
         BluetoothHandler.Init();
@@ -29,7 +31,13 @@ public class TestBluetooth : MonoBehaviour
         
             if (rgbd.tag == "Container")
                 mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>()?.GetMass() ?? 0;
-        
+
+            if (simpleMode)
+            {
+                BluetoothHandler.SendData(((float)mass) / 2.0f, ((float)mass) / 2.0f);
+                return;
+            }
+
             Vector3 pos = rgbd.worldCenterOfMass - rightHandController.position;
         
             float d = coeffReduc * Vector2.Distance(
@@ -57,7 +65,7 @@ public class TestBluetooth : MonoBehaviour
             m2 = (float)mass * (1-ratio);
 
         
-            print($"m1: {m1}, m2: {m2}, x: {x}, alpha: {alpha}");
+            //print($"m1: {m1}, m2: {m2}, x: {x}, alpha: {alpha}");
 
             BluetoothHandler.SendData(m1, m2);
         }
