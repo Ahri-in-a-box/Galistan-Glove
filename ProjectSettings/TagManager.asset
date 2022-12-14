@@ -10,6 +10,7 @@ TagManager:
   - Container
   - Apple
   - Index
+  - Boundary
   layers:
   - Default
   - TransparentFX

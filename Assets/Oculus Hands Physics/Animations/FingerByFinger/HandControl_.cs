@@ -20,7 +20,7 @@ public class HandControl_ : MonoBehaviour
 
     private void ReadCurls(byte[] data)
     {
-        if (data.Length != 8)
+        if (data.Length != 7)
         {
             print($"curl's length : {data.Length}");
             return;
@@ -63,7 +63,7 @@ public class HandControl_ : MonoBehaviour
         XRGrabInteractable var = other.gameObject.GetComponent<XRGrabInteractable>();
         if (var is null)
             return;
-        if(curl1 > 0.4f && var.isActiveAndEnabled)
+        if((curl0 > 0.4f && var.isActiveAndEnabled) && (curl1 > 0.4f || curl2 > 0.4f || curl3 > 0.4f || curl4 > 0.4f))
         {
             GetComponent<XRDirectInteractor>().StartManualInteraction(other.GetComponent<IXRSelectInteractable>());
         }

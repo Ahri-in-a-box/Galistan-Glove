@@ -41,7 +41,7 @@ public class CollectorBucketBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment" && other.gameObject.tag != "Tool")
+        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment" && other.gameObject.tag != "Tool" && other.gameObject.tag != "Boundary")
         //if (other.gameObject.tag == "Apple")
         {
             mass += (decimal)other.GetComponent<Rigidbody>().mass;

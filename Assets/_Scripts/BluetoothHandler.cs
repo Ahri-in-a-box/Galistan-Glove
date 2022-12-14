@@ -6,7 +6,7 @@ using ArduinoBluetoothAPI;
 public static class BluetoothHandler
 {
     private static BluetoothHelper BTHelper;
-    private static readonly byte[] data = new byte[512];
+    private static readonly byte[] data = new byte[7];
 
     private static bool init = false;
 
@@ -75,7 +75,7 @@ public static class BluetoothHandler
     public static void ActivateWeight()
     {
         BTHelper.Connect();
-        BTHelper.setFixedLengthBasedStream(8);
+        BTHelper.setFixedLengthBasedStream(7);
         state = BLState.Connecting;
         OnStateChange?.Invoke();
     }
@@ -91,7 +91,7 @@ public static class BluetoothHandler
         data[5] = (byte)(d2 >> 8);
 
         if (BTHelper.isConnected())
-            BTHelper.SendData(data[0..8]);
+            BTHelper.SendData(data);
         else
             Debug.Log("Arduino not available");
     }

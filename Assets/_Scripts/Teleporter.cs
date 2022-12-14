@@ -84,4 +84,12 @@ public class Teleporter : MonoBehaviour
             //Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Boundary")
+        {
+            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
+        }
+    }
 }
