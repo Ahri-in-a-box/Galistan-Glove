@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 enum ButtonType
@@ -32,10 +30,23 @@ public class ButtonClickable : MonoBehaviour
                 case ButtonType.OPTIONS:
                     break;
                 case ButtonType.SCENE_SWAP:
+                    print(gameObject.name);
+                    if (other.gameObject.name == "SceneSample")
+                    {
+                        print("case 1");
+                        ui.SceneLoader("SampleScene");
+                    }
+                    else if (gameObject.name == "SceneTest")
+                    {
+                        ui.SceneLoader("TestScene");
+                        print("case 2");
+                    }    
                     break;
                 case ButtonType.STATE:
+                    ui.ActDeactGalinstan();
                     break;
                 case ButtonType.QUIT:
+                    Application.Quit();
                     break;
                 default:
                     break;
