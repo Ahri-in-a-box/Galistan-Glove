@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(ActionBasedController))]
+//[RequireComponent(typeof(ActionBasedController))]
 public class HandControl_ : MonoBehaviour
 {
     public Hand_ hand;

@@ -112,6 +112,7 @@
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BLEServicesManager.cs" />
     <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
     <Compile Include="Assets\_Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\HandControlNoGlove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

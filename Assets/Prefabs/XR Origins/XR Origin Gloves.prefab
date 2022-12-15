@@ -2598,7 +2598,7 @@ Animator:
   m_GameObject: {fileID: 164843867196006685}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0284ecac7be7e2d409126f62358d744b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 41e4969846379e145a8dbc908a975cb0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5657,7 +5657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7417633997035747311
 Transform:
   m_ObjectHideFlags: 0
@@ -6130,6 +6130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7653489176936529374}
   - component: {fileID: 7653489176927523336}
+  - component: {fileID: 7525313694453942785}
   m_Layer: 9
   m_Name: Custom Left Hand Model
   m_TagString: Untagged
@@ -6164,7 +6165,7 @@ Animator:
   m_GameObject: {fileID: 7653489176936882622}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0284ecac7be7e2d409126f62358d744b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 41e4969846379e145a8dbc908a975cb0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6174,6 +6175,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7525313694453942785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653489176936882622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef15560176f95b44bbfc615ac4be1977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &7653489176936882624
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,6 +6713,7 @@ GameObject:
   - component: {fileID: 7760385592303785873}
   - component: {fileID: 7760385592303785872}
   - component: {fileID: 7760385592303785839}
+  - component: {fileID: 3140879235210659033}
   m_Layer: 0
   m_Name: LeftHand Controller Glove
   m_TagString: Untagged
@@ -7029,6 +7044,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3140879235210659033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760385592303785878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942edd6797f41c744939ea0e7ddc50f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 7525313694453942785}
+  handPhysics: {fileID: 7760385590843726830}
 --- !u!1 &8863150561580016956
 GameObject:
   m_ObjectHideFlags: 0
