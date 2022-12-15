@@ -66,6 +66,8 @@ public class Teleporter : MonoBehaviour
             player.transform.position = position;
 
             attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
+
+            collision.gameObject.GetComponent<TeleportationArea>()?.teleporting.Invoke(new TeleportingEventArgs());
         }
     }
 
