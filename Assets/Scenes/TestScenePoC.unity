@@ -3897,6 +3897,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 507611558}
     m_Modifications:
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 273342231}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 273342231}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ResetObjectWeight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SendObjectWeight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: TestBluetooth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682437477043516974, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: TestBluetooth, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4435370780846978406, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
       propertyPath: m_Name
       value: XR Origin PoC

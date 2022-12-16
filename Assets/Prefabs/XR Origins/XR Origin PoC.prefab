@@ -1316,9 +1316,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Teleporter, Assembly-CSharp
-        m_MethodName: OnGrabEnter
+      - m_Target: {fileID: 97242644742546817}
+        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
+        m_MethodName: DisableCollider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1343,15 +1343,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Teleporter, Assembly-CSharp
-        m_MethodName: OnGrabExited
-        m_Mode: 1
+      - m_Target: {fileID: 97242644742546817}
+        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
+        m_MethodName: EnableColliderDelay
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1673,10 +1673,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TestBluetooth, Assembly-CSharp
-        m_MethodName: SendObjectWeight
-        m_Mode: 0
+      - m_Target: {fileID: 1138925604420360039}
+        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
+        m_MethodName: DisableCollider
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1712,15 +1712,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TestBluetooth, Assembly-CSharp
-        m_MethodName: ResetObjectWeight
-        m_Mode: 0
+      - m_Target: {fileID: 1138925604420360039}
+        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
+        m_MethodName: EnableColliderDelay
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -5041,6 +5041,17 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &1138925604420360039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3621981467535291327, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
+  m_PrefabInstance: {fileID: 4435370781633914072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138925604420360038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b4a737903b82a43bb95804a2149147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6458215155726430189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7218613031850314549, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
