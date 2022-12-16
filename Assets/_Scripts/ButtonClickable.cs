@@ -27,19 +27,17 @@ public class ButtonClickable : MonoBehaviour
                     if(ui)
                         ui.OnMenuPressed(panel);
                     break;
-                case ButtonType.OPTIONS:
-                    break;
                 case ButtonType.SCENE_SWAP:
-                    print(gameObject.name);
                     if (other.gameObject.name == "SceneSample")
                     {
-                        print("case 1");
                         ui.SceneLoader("SampleScene");
                     }
                     else if (gameObject.name == "SceneTest")
                     {
-                        ui.SceneLoader("TestScene");
-                        print("case 2");
+                        if (TestBluetooth.BTHInstance.simpleMode)
+                            ui.SceneLoader("TestSceneGloves");
+                        else
+                            ui.SceneLoader("TestScenePoC");
                     }    
                     break;
                 case ButtonType.STATE:
