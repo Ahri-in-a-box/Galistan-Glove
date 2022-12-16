@@ -422,6 +422,7 @@
 "Assets/_Scripts/BluetoothHandler.cs"
 "Assets/_Scripts/BubbleBehavior.cs"
 "Assets/_Scripts/BucketBehavior.cs"
+"Assets/_Scripts/ButtonClickable.cs"
 "Assets/_Scripts/CollectorBucketBehavior.cs"
 "Assets/_Scripts/DummyBehavior.cs"
 "Assets/_Scripts/GameManager.cs"

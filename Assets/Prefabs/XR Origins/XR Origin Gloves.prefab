@@ -5657,7 +5657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7417633997035747311
 Transform:
   m_ObjectHideFlags: 0
@@ -6932,9 +6932,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Teleporter, Assembly-CSharp
-        m_MethodName: OnGrabEnter
+      - m_Target: {fileID: 6481156366056796771}
+        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
+        m_MethodName: DisableCollider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6959,15 +6959,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Teleporter, Assembly-CSharp
-        m_MethodName: OnGrabExited
-        m_Mode: 1
+      - m_Target: {fileID: 6481156366056796771}
+        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
+        m_MethodName: EnableColliderDelay
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -8163,7 +8163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108133271895043413, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4108133271895043418, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8205,9 +8205,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 83.802
       objectReference: {fileID: 0}
-    - target: {fileID: 9028106224488502671, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
+    - target: {fileID: 5716753949698252063, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028106224488502671, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 730101f8824b1904fa74f2e2f1c5eb8e, type: 3}

@@ -28,8 +28,9 @@ public class ButtonClickable : MonoBehaviour
                         ui.OnMenuPressed(panel);
                     break;
                 case ButtonType.SCENE_SWAP:
-                    if (other.gameObject.name == "SceneSample")
+                    if (gameObject.name == "SceneSample")
                     {
+                        //print("je suis là");
                         ui.SceneLoader("SampleScene");
                     }
                     else if (gameObject.name == "SceneTest")

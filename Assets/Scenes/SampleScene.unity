@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4acfea060717dcd47875cdd4726fd36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RHController: {fileID: 963708861}
+  RHController: {fileID: 0}
   simpleMode: 1
 --- !u!4 &273342232
 Transform:
@@ -5443,11 +5443,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4845379153532556, guid: 021c0694291954181b57883b69e4a6c4, type: 3}
   m_PrefabInstance: {fileID: 960995760}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &963708861 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4435370779839768596, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
-  m_PrefabInstance: {fileID: 4435370780755111849}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &976144392
 PrefabInstance:
@@ -12867,6 +12862,10 @@ PrefabInstance:
     - target: {fileID: 4435370780846978406, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
       propertyPath: m_Name
       value: ' XR Origin PoC'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435370780846978406, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4435370780846978424, guid: 47b5a9e5e5924ad46a6a5d4124c29f5d, type: 3}
       propertyPath: m_RootOrder
