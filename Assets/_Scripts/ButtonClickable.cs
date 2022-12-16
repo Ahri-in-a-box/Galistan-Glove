@@ -34,7 +34,7 @@ public class ButtonClickable : MonoBehaviour
                     }
                     else if (gameObject.name == "SceneTest")
                     {
-                        if(TestBluetooth.BTHInstance.simpleMode)
+                        if (TestBluetooth.BTHInstance.simpleMode)
                             ui.SceneLoader("TestSceneGloves");
                         else
                             ui.SceneLoader("TestScenePoC");
