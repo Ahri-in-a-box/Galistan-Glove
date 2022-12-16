@@ -30,8 +30,10 @@ public class ButtonClickable : MonoBehaviour
                 case ButtonType.SCENE_SWAP:
                     if (gameObject.name == "SceneSample")
                     {
-                        //print("je suis là");
-                        ui.SceneLoader("SampleScene");
+                        if (TestBluetooth.BTHInstance.simpleMode)
+                            ui.SceneLoader("SampleSceneGlove");
+                        else
+                            ui.SceneLoader("SampleScenePoC");
                     }
                     else if (gameObject.name == "SceneTest")
                     {
