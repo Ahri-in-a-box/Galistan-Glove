@@ -6,12 +6,18 @@ public class HandControlNoGlove : MonoBehaviour
 {
     ActionBasedController controller;
 
-    Hand_ hand;
-    Hand_ handPysics;
+    public Hand_ hand;
+    public Hand_ handPhysics;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        controller = GetComponent<ActionBasedController>();
+    }
     void Update()
     {
-        
+        hand.SetPoint(controller.activateAction.action.ReadValue<float>());
+        handPhysics.SetPoint(controller.activateAction.action.ReadValue<float>());
+        hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        handPhysics.SetGrip(controller.selectAction.action.ReadValue<float>());
     }
 }

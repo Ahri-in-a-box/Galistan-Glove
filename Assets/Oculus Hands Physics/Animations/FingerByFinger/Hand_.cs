@@ -13,6 +13,13 @@ public class Hand_ : MonoBehaviour
     Animator animator;
     public float speed;
 
+    private float pointTarget;
+    private float gripTarget;
+
+    private float pointCurrent;
+    private float gripCurrent;
+
+
     private float indexTarget;
     private float middleTarget;
     private float ringTarget;
@@ -35,6 +42,16 @@ public class Hand_ : MonoBehaviour
     void Update()
     {
         AnimateHand();
+    }
+
+    internal void SetPoint(float v)
+    {
+        pointTarget = v;
+    }
+    
+    internal void SetGrip(float v)
+    {
+        gripTarget = v;
     }
 
     internal void SetIndex(float v)
@@ -64,7 +81,19 @@ public class Hand_ : MonoBehaviour
 
     void AnimateHand()
     {
-        if(indexCurrent != indexTarget)
+        if (pointCurrent != pointTarget)
+        {
+            pointCurrent = Mathf.MoveTowards(pointCurrent, pointTarget, Time.deltaTime * speed);
+            animator.SetFloat("Point", pointCurrent);
+        }
+
+        if (gripCurrent != gripTarget)
+        {
+            gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
+            animator.SetFloat("Grip", gripCurrent);
+        }
+
+        if (indexCurrent != indexTarget)
         {
             indexCurrent = Mathf.MoveTowards(indexCurrent, indexTarget, Time.deltaTime * speed);
             animator.SetFloat("Index", indexCurrent);

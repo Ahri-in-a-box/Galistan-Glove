@@ -903,6 +903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3647474865007274556}
   - component: {fileID: 3647474864999777770}
+  - component: {fileID: 2616013588074783755}
   m_Layer: 9
   m_Name: Custom Left Hand Model
   m_TagString: Untagged
@@ -937,7 +938,7 @@ Animator:
   m_GameObject: {fileID: 3647474865007179356}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0284ecac7be7e2d409126f62358d744b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 08a3ade905cb7024cb7e2ce71b978a8a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -947,6 +948,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2616013588074783755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647474865007179356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef15560176f95b44bbfc615ac4be1977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &3647474865007179358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1083,7 @@ GameObject:
   - component: {fileID: 3682437475741335667}
   - component: {fileID: 3682437475741335666}
   - component: {fileID: 3682437475741335693}
+  - component: {fileID: 151719153125364567}
   m_Layer: 11
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1398,6 +1413,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &151719153125364567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682437475741335668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339b83a4292fa44a91742312bc7c029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 2616013588074783755}
+  handPhysics: {fileID: 3682437476430466060}
 --- !u!1 &3682437477043516968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1439,7 @@ GameObject:
   - component: {fileID: 3682437477043516975}
   - component: {fileID: 3682437477043516974}
   - component: {fileID: 3682437477043517137}
+  - component: {fileID: 8047366261284277381}
   m_Layer: 11
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -1764,6 +1794,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8047366261284277381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682437477043516968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339b83a4292fa44a91742312bc7c029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 5251550691007589452}
+  handPhysics: {fileID: 4435370781599335342}
 --- !u!1 &4435370780272624425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2291,7 @@ GameObject:
   - component: {fileID: 3682437476430466056}
   - component: {fileID: 3682437476430466060}
   - component: {fileID: 3682437476430466062}
+  - component: {fileID: 1983425939929454234}
   m_Layer: 7
   m_Name: Left Hand Presence Physics
   m_TagString: Untagged
@@ -2295,7 +2340,7 @@ Animator:
   m_GameObject: {fileID: 6548634443218368255}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0284ecac7be7e2d409126f62358d744b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 08a3ade905cb7024cb7e2ce71b978a8a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2349,6 +2394,19 @@ MonoBehaviour:
   target: {fileID: 3647474865007274556}
   nonPhysicalHand: {fileID: 3647474864995679018}
   showNonPhysicalHandDistance: 0.05
+--- !u!114 &1983425939929454234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548634443218368255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef15560176f95b44bbfc615ac4be1977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &6548635633744444577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4633,6 +4691,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8350836956578110893, guid: 3c99d0ba506360a43b8cea08ef805d25, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8d2fbb97ad75f9f4e9a8615c68fea495, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c99d0ba506360a43b8cea08ef805d25, type: 3}
 --- !u!95 &5650253702199172608 stripped
@@ -4883,6 +4945,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5686134208563048910, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8d2fbb97ad75f9f4e9a8615c68fea495, type: 2}
     - target: {fileID: 5686134208567250702, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4985,6 +5051,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5686134208553950744, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
   m_PrefabInstance: {fileID: 4435370781633914072}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8314963047259448992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5686134208553648760, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
+  m_PrefabInstance: {fileID: 4435370781633914072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5251550691007589452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314963047259448992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef15560176f95b44bbfc615ac4be1977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!137 &8314963047264725974 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5686134208567250702, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
