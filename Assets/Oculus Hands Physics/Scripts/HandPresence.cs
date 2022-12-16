@@ -9,9 +9,12 @@ public class HandPresence : MonoBehaviour
     private InputDevice targetDevice;
     public Animator handAnimator;
 
+    private Collider indexCollider;
+
     void Start()
     {
         TryInitialize();
+        indexCollider = GetComponentInChildren<Collider>();
     }
 
     void TryInitialize()
@@ -57,5 +60,20 @@ public class HandPresence : MonoBehaviour
         {
             UpdateHandAnimation();
         }
+    }
+
+    public void EnableCollider()
+    {
+        indexCollider.enabled = true;
+    }
+
+    public void EnableColliderDelay(float v)
+    {
+        Invoke("EnableCollider", v);
+    }
+
+    public void DisableCollider()
+    {
+        indexCollider.enabled = false;
     }
 }

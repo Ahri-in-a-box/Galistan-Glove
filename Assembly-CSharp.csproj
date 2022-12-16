@@ -104,10 +104,10 @@
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllerManager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
     <Compile Include="Assets\_Scripts\TreeBehavior.cs" />
+    <Compile Include="Assets\Oculus Hands Physics\Animations\PointGrip\HandControlNoGlove.cs" />
     <Compile Include="Assets\_Scripts\BucketBehavior.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />
-    <Compile Include="Assets\_Scripts\ButtonClickable.cs" />
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\ScanSceneManager.cs" />
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BLEServicesManager.cs" />
     <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
