@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     private GameObject collectorBucket;
     private int treeCount = 0;
     private int gameState = 0;
-    private bool isActive = false;
 
     private void Awake()
     {
@@ -50,11 +49,17 @@ public class GameManager : MonoBehaviour
         };
         DummyBehavior.OnDummyHitEvent += () =>
         {
+            if (m_GameState != GameState.IDLE)
+                return;
+
             m_GameState = GameState.QUEST1_ACTIVE;
             Quest1();
         };
         CollectorBucketBehavior.OnRequiredApplesEvent += () =>
         {
+            if (m_GameState != GameState.QUEST2_ACTIVE)
+                return;
+
             m_GameState = GameState.QUEST2_FINISHED;
             bubbleBackground.gameObject.SetActive(false);
             hints.text = "Retournez-voir le mannequin";
@@ -62,6 +67,9 @@ public class GameManager : MonoBehaviour
 
         CollectorBucketBehavior.OnNotEnoughApplesEvent += () =>
         {
+            if (m_GameState != GameState.QUEST1_FINISHED)
+                return;
+
             Quest2();
             m_GameState = GameState.QUEST2_ACTIVE;
         };
@@ -109,59 +117,6 @@ public class GameManager : MonoBehaviour
                 break;
             default: break;
         }
-
-
-        /*if (gameState == 1 && isActive == false)
-        {
-            //print("lancement de la quête");
-            Quest1();
-        }
-        else if(gameState == 1 && isActive == true)
-        {
-            //print("en cours de la 1ere quête");
-            
-            if(isQuest1Finished())
-            {
-                bubbleBackground.gameObject.SetActive(false);
-                hints.text = "Retournez-voir le mannequin";
-                gameState = 2;
-                isActive = false;
-            }
-        }
-        
-        if(gameState == 2 && isActive == false)
-        {
-            //Si le joueur s'appoche à 3 mètres du mannequin
-            if(IsPlayer3m())
-            {
-                //print("lancement quête 2");
-                Quest2();
-            }
-        }
-        else if(gameState == 2 && isActive == true)
-        {
-            //print("en cours de la 2e quête");
-
-            if(isQuest2Finished())
-            {
-                bubbleBackground.gameObject.SetActive(false);
-                hints.text = "Retournez-voir le mannequin";
-                gameState = 3;
-                isActive = false;
-            }
-        }
-
-        if(gameState == 3 && isActive == false)
-        {
-            //Si le joueur s'appoche à 3 mètres du mannequin
-            if(IsPlayer3m())
-            {
-                //print("fin du jeu");
-                bubbleBackground.gameObject.SetActive(true);
-                bubble.text = "Merci d'avoir joué !";
-                hints.text = "";
-            }
-        }*/
     }
 
     public int GetGameState()
@@ -211,8 +166,6 @@ public class GameManager : MonoBehaviour
 
         axe.SetActive(true);
         path1.SetActive(false);
-
-        isActive = true;
     }
 
     private bool isQuest1Finished()
@@ -235,8 +188,6 @@ public class GameManager : MonoBehaviour
 
         bucket.SetActive(true);
         path2.SetActive(false);
-
-        isActive = true;
     }
 
     private bool isQuest2Finished()

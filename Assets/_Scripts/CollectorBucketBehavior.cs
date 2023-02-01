@@ -5,6 +5,7 @@ using TMPro;
 public class CollectorBucketBehavior : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] private GameObject bucket;
     private readonly List<GameObject> objects = new();
     private decimal mass = 0.0M;
     public bool isChanged = false;
@@ -47,7 +48,7 @@ public class CollectorBucketBehavior : MonoBehaviour
             mass += (decimal)other.GetComponent<Rigidbody>().mass;
 
             //update bucket's weight
-            GetComponent<Rigidbody>().mass = (float)(mass + 0.2M);
+            bucket.GetComponent<Rigidbody>().mass = (float)(mass + 0.2M);
             
             if (mass >= 1)
                 OnRequiredApplesEvent?.Invoke();
@@ -69,7 +70,7 @@ public class CollectorBucketBehavior : MonoBehaviour
         {
             mass -= (decimal)other.GetComponent<Rigidbody>().mass;
 
-            GetComponent<Rigidbody>().mass = (float)(mass + 0.2M);
+            bucket.GetComponent<Rigidbody>().mass = (float)(mass + 0.2M);
 
             if (mass < 1)
                 OnNotEnoughApplesEvent?.Invoke();
