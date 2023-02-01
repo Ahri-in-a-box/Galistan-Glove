@@ -11,6 +11,8 @@ TagManager:
   - Apple
   - Index
   - Boundary
+  - Teleporter
+  - Hands
   layers:
   - Default
   - TransparentFX
@@ -19,11 +21,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Left Hand Physics
-  - Right Hand Physics
+  - Boundaries
+  - 
   - Non Physics Hand Layer
   - Teleporter
-  - Controller
+  - 
   - 
   - 
   - 

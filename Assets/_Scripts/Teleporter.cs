@@ -13,6 +13,11 @@ public class Teleporter : MonoBehaviour
     public Rigidbody rb;
     public XRSocketInteractor attach;
 
+    Vector3 TpCoords;
+    GameObject collisionObject;
+    bool ShouldTP = false;
+    bool ShouldReset = false;
+
     private Stopwatch timer = new();
 
     void Start()
@@ -48,34 +53,43 @@ public class Teleporter : MonoBehaviour
             attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
             timer.Reset();
         }
+
+        if (ShouldReset)
+        {
+            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
+            ShouldReset = false;
+        }
+        else if (ShouldTP)
+        {
+            player.transform.position = TpCoords;
+            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
+            collisionObject.GetComponent<TeleportationArea>()?.teleporting.Invoke(new TeleportingEventArgs());
+        }
+
+        ShouldTP = false;
     }
   
 
     void OnCollisionEnter(Collision collision)
     {
         if (!active)
-        {
             return;
+
+        if(collision.gameObject.tag == "Boundary")
+        {
+            ShouldReset = true;
         }
-        if(collision.gameObject.tag == "Ground")
+        else if(collision.gameObject.tag == "Ground")
         {
             ContactPoint contact = collision.contacts[0];
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 position = contact.point;
             active = false;
-            player.transform.position = position;
 
-            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
-
-            collision.gameObject.GetComponent<TeleportationArea>()?.teleporting.Invoke(new TeleportingEventArgs());
+            TpCoords = position;
+            ShouldTP = true;
+            collisionObject = collision.gameObject;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Boundary")
-        {
-            attach.StartManualInteraction(Cube.GetComponent<IXRSelectInteractable>());
-        }
-    }
 }

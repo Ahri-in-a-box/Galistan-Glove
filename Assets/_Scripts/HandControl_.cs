@@ -5,7 +5,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HandControl_ : MonoBehaviour
 {
     public Hand_ hand;
-    public Hand_ handPhysics;
 
     public float curl0;
     public float curl1;
@@ -45,15 +44,17 @@ public class HandControl_ : MonoBehaviour
         //print(curl0 + " " + curl1 + " " + curl2 + " " + curl3 + " " + curl4);
 
         hand.SetThumb(curl0);
-        handPhysics.SetThumb(curl0);
         hand.SetIndex(curl1);
-        handPhysics.SetIndex(curl1);
         hand.SetMiddle(curl2);
-        handPhysics.SetMiddle(curl2);
         hand.SetRing(curl3);
-        handPhysics.SetRing(curl3);
         hand.SetPinky(curl4);
-        handPhysics.SetPinky(curl4);
+
+        
+
+        if ((GetComponent<XRDirectInteractor>().isPerformingManualInteraction) && (curl0 <= 0.4f || (curl1 <= 0.4f && curl2 <= 0.4f && curl3 <= 0.4f && curl4 <= 0.4f)))
+        {
+            GetComponent<XRDirectInteractor>().EndManualInteraction();
+        }
 
     }
 
@@ -61,15 +62,12 @@ public class HandControl_ : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         XRGrabInteractable var = other.gameObject.GetComponent<XRGrabInteractable>();
-        if (var is null)
+        
+        if (var is null || !var.isActiveAndEnabled || other.gameObject.tag == "Teleporter")
             return;
-        if((curl0 > 0.4f && var.isActiveAndEnabled) && (curl1 > 0.4f || curl2 > 0.4f || curl3 > 0.4f || curl4 > 0.4f))
+        if((curl0 > 0.4f && !GetComponent<XRDirectInteractor>().isPerformingManualInteraction) && (curl1 > 0.4f || curl2 > 0.4f || curl3 > 0.4f || curl4 > 0.4f))
         {
             GetComponent<XRDirectInteractor>().StartManualInteraction(other.GetComponent<IXRSelectInteractable>());
-        }
-        else
-        { 
-            GetComponent<XRDirectInteractor>().EndManualInteraction();            
         }
     }
 

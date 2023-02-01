@@ -7,7 +7,8 @@ enum ButtonType
     OPTIONS,
     SCENE_SWAP,
     STATE,
-    QUIT
+    QUIT,
+    CALIBRATE
 }
 
 public class ButtonClickable : MonoBehaviour
@@ -48,6 +49,9 @@ public class ButtonClickable : MonoBehaviour
                     break;
                 case ButtonType.QUIT:
                     Application.Quit();
+                    break;
+                case ButtonType.CALIBRATE:
+                    BluetoothHandler.SendCalibrate();
                     break;
                 default:
                     break;

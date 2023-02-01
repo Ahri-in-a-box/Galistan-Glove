@@ -85,17 +85,36 @@ public static class BluetoothHandler
         ushort d1 = (ushort)(m1 * 1000);
         ushort d2 = (ushort)(m2 * 1000);
 
+        data[1] = 0x69;
         data[2] = (byte)(d1 & 0xff);
         data[3] = (byte)(d1 >> 8);
         data[4] = (byte)(d2 & 0xff);
         data[5] = (byte)(d2 >> 8);
 
         if (BTHelper.isConnected())
+        {
+            Debug.Log($"Sent: ({m1}, {m2})");
             BTHelper.SendData(data);
+        }
         else
             Debug.Log("Arduino not available");
     }
 
+    public static void SendCalibrate()
+    {
+        data[1] = 0x70;
+        data[2] = 0xff;
+        data[3] = 0xff;
+        data[4] = 0xff;
+        data[5] = 0xff;
 
+        if (BTHelper.isConnected())
+        {
+            Debug.Log($"Sent Calibration");
+            BTHelper.SendData(data);
+        }
+        else
+            Debug.Log("Arduino not available");
+    }
 
 }

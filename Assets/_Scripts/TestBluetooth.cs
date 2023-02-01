@@ -2,36 +2,38 @@ using UnityEngine;
 using ArduinoBluetoothAPI;
 using UnityEngine.XR.Interaction.Toolkit;
 using System;
+using UnityEngine.SceneManagement;
 
 public class TestBluetooth : MonoBehaviour
 {
-    public static TestBluetooth BTHInstance = new();
+    public static TestBluetooth BTHInstance;
     [SerializeField] private Transform RHController;
     private static Transform rightHandController;
 
     private static readonly float dmax = 0.05f;
     private const float coeffReduc = 0.1f;
 
-    private GameObject props;
-
-    public bool simpleMode = false;
+    public bool simpleMode;
 
     private void Awake()
     {
+        if (BTHInstance && BTHInstance != this)
+            Destroy(gameObject);
+        BTHInstance = this;
+
         BluetoothHandler.Init();
         rightHandController = RHController;
     }
 
     private void FixedUpdate()
     {
-        if (props)
+        var objects = rightHandController.GetComponent<XRDirectInteractor>().interactablesSelected;
+        
+        if (objects.Count > 0)
         {
-            Rigidbody rgbd = props.GetComponent<Rigidbody>();
+            Rigidbody rgbd = objects[0].transform.gameObject.GetComponent<Rigidbody>();
             decimal mass = (decimal)rgbd.mass;
         
-            if (rgbd.tag == "Container")
-                mass += rgbd.gameObject.GetComponentInChildren<CollectorBucketBehavior>()?.GetMass() ?? 0;
-
             if (simpleMode)
             {
                 BluetoothHandler.SendData(((float)mass) / 2.0f, ((float)mass) / 2.0f);
@@ -72,26 +74,10 @@ public class TestBluetooth : MonoBehaviour
 
             BluetoothHandler.SendData(m1, m2);
         }
-
-    }
-
-    public void SendContainerWeight(GameObject obj)
-    {
-        props = obj;
-    }
-
-    public void SendObjectWeight(SelectEnterEventArgs args)
-    {
-        if(args.interactableObject.transform.tag != "Ground")
-            SendContainerWeight(args.interactableObject.transform.gameObject);
-    }
-
-    public void ResetObjectWeight(SelectExitEventArgs args)
-    {
-        props = null;
-        if (args.interactableObject.transform.tag != "Ground")
+        else
+        {
             BluetoothHandler.SendData(0, 0);
+        }
+
     }
-
-
 }

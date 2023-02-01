@@ -68,9 +68,8 @@
     <Compile Include="Assets\Imports\BluetoothAPI\Scripts\BTManager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ChangeSelectionWeight.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_OculusHand.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Scripts\HandPresence.cs" />
+    <Compile Include="Assets\_Scripts\HandPresence.cs" />
     <Compile Include="Assets\_Scripts\TestBluetooth.cs" />
-    <Compile Include="Assets\_Scripts\Hand.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_GenericHand.cs" />
     <Compile Include="Assets\_Scripts\UserInterfaceManager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_SteamHand.cs" />
@@ -81,8 +80,8 @@
     <Compile Include="Assets\_Scripts\Teleporter.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\SimpleImpact.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\DissembleWithDistance.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Animations\FingerByFinger\Hand_.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Scripts\HandPresence_.cs" />
+    <Compile Include="Assets\_Scripts\Hand_.cs" />
+    <Compile Include="Assets\_Scripts\HandPresence_.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\ManageContainerObject.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HandStatusDebugger.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\AssembleArticulationBody.cs" />
@@ -90,9 +89,7 @@
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_LeapHand.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityInteractionHand.cs" />
     <Compile Include="Assets\_Scripts\CollectorBucketBehavior.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Animations\FingerByFinger\HandControl_.cs" />
-    <Compile Include="Assets\_Scripts\HandControl.cs" />
-    <Compile Include="Assets\_Scripts\HandPresencePhysics_.cs" />
+    <Compile Include="Assets\_Scripts\HandControl_.cs" />
     <Compile Include="Assets\_Scripts\BluetoothHandler.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\Move.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scenes\onboarding\Scripts\MetalImpact.cs" />
@@ -104,7 +101,7 @@
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllerManager.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HintVisualizer.cs" />
     <Compile Include="Assets\_Scripts\TreeBehavior.cs" />
-    <Compile Include="Assets\Oculus Hands Physics\Animations\PointGrip\HandControlNoGlove.cs" />
+    <Compile Include="Assets\_Scripts\HandControlNoGlove.cs" />
     <Compile Include="Assets\_Scripts\BucketBehavior.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_HandVisualizer.cs" />
     <Compile Include="Assets\Imports\ThirdParty\VirtualGrasp\Scripts\VG_ExternalControllers\VG_EC_UnityXRHand.cs" />

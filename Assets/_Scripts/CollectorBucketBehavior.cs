@@ -41,16 +41,21 @@ public class CollectorBucketBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment" && other.gameObject.tag != "Tool" && other.gameObject.tag != "Boundary")
-        //if (other.gameObject.tag == "Apple")
+
+        if (other.gameObject.tag == "Apple")
         {
             mass += (decimal)other.GetComponent<Rigidbody>().mass;
 
+            //update bucket's weight
+            GetComponent<Rigidbody>().mass = (float)(mass + 0.2M);
+            
             if (mass >= 1)
                 OnRequiredApplesEvent?.Invoke();
 
-            if (TestBluetooth.BTHInstance)
-                TestBluetooth.BTHInstance.SendContainerWeight(transform.parent.gameObject);
+            //if (isGrabbed && TestBluetooth.BTHInstance)
+            //    TestBluetooth.BTHInstance.AddObjectWeight(transform.parent.gameObject);
+
+            
 
             other.transform.SetParent(transform);
             objects.Add(other.gameObject);
@@ -59,16 +64,18 @@ public class CollectorBucketBehavior : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag != "Ground" && other.gameObject.tag != "Environment" && other.gameObject.tag != "Tool")
-        //if (other.gameObject.tag == "Apple")
+
+        if(other.transform.parent == transform)
         {
             mass -= (decimal)other.GetComponent<Rigidbody>().mass;
+
+            GetComponent<Rigidbody>().mass = (float)(mass + 0.2M);
 
             if (mass < 1)
                 OnNotEnoughApplesEvent?.Invoke();
 
-            if (isGrabbed && TestBluetooth.BTHInstance)
-                TestBluetooth.BTHInstance.SendContainerWeight(transform.parent.gameObject);
+            //if (isGrabbed && TestBluetooth.BTHInstance)
+            //    TestBluetooth.BTHInstance.AddObjectWeight(transform.parent.gameObject);
             
             other.transform.SetParent(null);
             objects.Remove(other.gameObject);

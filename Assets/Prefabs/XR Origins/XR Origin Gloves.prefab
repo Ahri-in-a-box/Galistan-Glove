@@ -5042,7 +5042,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 4294967294
   m_AttachTransform: {fileID: 8863150561612163855}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -7099,7 +7099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863150561612163852}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.0125, y: 0.056, z: -0.157}
+  m_LocalPosition: {x: 0.0125, y: 0.056, z: -0.1855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7997,6 +7997,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8526513226404607798}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGrabEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Teleporter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876264517163464215, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4408818261195409095, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
       propertyPath: m_Name
       value: Teleporter
@@ -8034,6 +8062,17 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 6278585212772214792, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
   m_PrefabInstance: {fileID: 1472601535666535078}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8526513226404607798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7078525918701751696, guid: 5fdb3b50afc3a46419ad1d94b63b0229, type: 3}
+  m_PrefabInstance: {fileID: 1472601535666535078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972656760434195553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a57badb685f8fc40abced6d7b3120ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7417633997044253044
 PrefabInstance:
   m_ObjectHideFlags: 0
