@@ -22,10 +22,7 @@ AccelStepper M1 = AccelStepper(AccelStepper::DRIVER, PUL1, DIR1, -1, -1, true);
 bool WeightChanged = true;
 
 //How much ml we inject per step of a motor
-#define MLPERSTEP 0.017595f
-
-//number of steps that the stepper motor need to reach
-uint32_t Po0, Po1;
+#define MLPERSTEP 0.005454545454545f
 
 void OnRX() {
   ushort m0, m1, a;
@@ -52,6 +49,10 @@ void OnRX() {
     l0 = m0 / MLPERSTEP;
     l1 = m1 / MLPERSTEP;
 
+    //scale data since water is not heavy enough to have heavy objects
+    l0 *= 1.6f;
+    l1 *= 1.6f;
+
     //prevent the motors from pushing beyond the end
     if (l0 > 11000)
       l0 = 11000;
@@ -60,9 +61,8 @@ void OnRX() {
       l1 = 11000;
 
     //Multiply the number of step by the microstepping factor and set it as objective
-    Po0 = (uint32_t)l0 * MicroStep;
-    Po1 = (uint32_t)l1 * MicroStep;
-    WeightChanged = true;
+    M0.moveTo((uint32_t)l0 * MicroStep);
+    M1.moveTo((uint32_t)l1 * MicroStep);
   }
 }
 
@@ -82,8 +82,8 @@ void setup() {
   digitalWrite(ENA1, HIGH);
 
   //Set acceleration for smooth actuation
-  M0.setAcceleration(900 * MicroStep);
-  M1.setAcceleration(900 * MicroStep);
+  M0.setAcceleration(1000 * MicroStep);
+  M1.setAcceleration(1000 * MicroStep);
 
   //Use Serial port connected to the other card to get the data
   Serial.begin(115200);
@@ -91,12 +91,13 @@ void setup() {
   //Perform one home
   HomeActuators();
 
-  //Set speed of motors and acceleration
+  //Set speed of motors
   M0.setMaxSpeed(3000 * MicroStep);
   M1.setMaxSpeed(3000 * MicroStep);
+
   //Set target position to 0;
-  Po0 = 0;
-  Po1 = 0;
+  M0.moveTo(0);
+  M1.moveTo(0);
 }
 
 // Used to home the two linear actuators
@@ -128,19 +129,11 @@ void HomeActuators() {
 
 void loop() {
 
-  //Check for bluetooth data
+  //Check for serial data
   OnRX();
 
   //turn led on or off according to switch state (used to check that the switches work)
   digitalWrite(LED_BUILTIN, digitalRead(SW0) ^ digitalRead(SW1));
-
-  if (WeightChanged) {
-    //update motors target position
-    M0.moveTo(Po0);
-    M1.moveTo(Po1);
-    WeightChanged = false;
-  }
-
 
   //make motors perform a step if necessary
   M0.run();
