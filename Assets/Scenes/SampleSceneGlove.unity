@@ -907,6 +907,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &197010734 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4771400745401516777, guid: 080366e333915784aad0d3a9dca14104, type: 3}
+  m_PrefabInstance: {fileID: 4771400746682745294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &214705202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7800,6 +7805,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4477774390129726, guid: c7f6e865afc8d49f49df5172864ea8f3, type: 3}
   m_PrefabInstance: {fileID: 1492221594}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1498422558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7927929480466306127, guid: 080366e333915784aad0d3a9dca14104, type: 3}
+  m_PrefabInstance: {fileID: 4771400746682745294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1507595220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9415,7 +9425,7 @@ MonoBehaviour:
   questObjects: {fileID: 2021571985}
   dummy: {fileID: 1868799863}
   bubbleBackground: {fileID: 1478178293}
-  player: {fileID: 728994557}
+  player: {fileID: 197010734}
   bubble: {fileID: 1654012648}
   hints: {fileID: 373696338}
   m_GameState: 0
@@ -12654,7 +12664,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 3104937870949874755}
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
@@ -13238,7 +13248,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 7636929607098695652}
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
@@ -13377,7 +13387,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 8693276529144535029}
   m_AttachEaseInTime: 0.15
   m_MovementType: 2
   m_VelocityDamping: 1
@@ -13905,6 +13915,10 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6901745646126922304, guid: 080366e333915784aad0d3a9dca14104, type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 1498422558}
     - target: {fileID: 6901745646126922304, guid: 080366e333915784aad0d3a9dca14104, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 0

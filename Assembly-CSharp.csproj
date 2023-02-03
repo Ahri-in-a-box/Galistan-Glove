@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\TutorialManager.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
-    <Compile Include="Assets\_Scripts\GrabbableLeftRight.cs" />
     <Compile Include="Assets\_Scripts\HandPresence.cs" />
     <Compile Include="Assets\_Scripts\TestBluetooth.cs" />
     <Compile Include="Assets\_Scripts\UserInterfaceManager.cs" />
