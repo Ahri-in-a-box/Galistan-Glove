@@ -1,0 +1,8 @@
+<linker>
+  <!--Preserve types and members in an assembly-->
+  <assembly fullname="BluetoothHandler">
+    <!--Preserve an entire type-->
+    <type fullname="BluetoothHandler.*" preserve="all"/>
+    </type>
+  </assembly>
+</linker>

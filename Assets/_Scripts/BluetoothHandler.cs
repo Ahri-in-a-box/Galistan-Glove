@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ArduinoBluetoothAPI;
+using UnityEngine.Android;
 
 public static class BluetoothHandler
 {
@@ -23,7 +24,6 @@ public static class BluetoothHandler
 
     public delegate void DataReceived(byte[] data);
     public static event DataReceived OnDataReceived = null;
-
 
     public static void Init()
     {
@@ -74,11 +74,16 @@ public static class BluetoothHandler
 
     public static void ActivateWeight()
     {
+
         BTHelper.Connect();
         BTHelper.setFixedLengthBasedStream(7);
+
         state = BLState.Connecting;
         OnStateChange?.Invoke();
     }
+
+    public static ushort lastD1 = 0xffff;
+    public static ushort lastD2 = 0xffff;
 
     public static void SendData(float m1, float m2)
     {
@@ -94,7 +99,11 @@ public static class BluetoothHandler
         if (BTHelper.isConnected())
         {
             Debug.Log($"Sent: ({m1}, {m2})");
-            BTHelper.SendData(data);
+            
+            if (d1 == lastD1 && d2 == lastD2)
+                BTHelper.SendData(data);
+            lastD1 = d1;
+            lastD2 = d2;
         }
         else
             Debug.Log("Arduino not available");

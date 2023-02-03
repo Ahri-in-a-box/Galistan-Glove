@@ -36,9 +36,10 @@ public class UserInterfaceManager : MonoBehaviour
         }
     }
 
-    public void OnMenuPressed(GameObject panel)
+    public void OnMenuPressed(GameObject panel, GameObject panelLogs)
     {
         panel.SetActive(isActive = !isActive);
+        panelLogs.SetActive(isActive);
     }
 
     private void OnDestroy()

@@ -15,6 +15,7 @@ public class ButtonClickable : MonoBehaviour
 {
     [SerializeField] UserInterfaceManager ui;
     [SerializeField] GameObject panel;
+    [SerializeField] GameObject panelLogs;
     [SerializeField]
     private ButtonType m_Type = ButtonType.NONE;
 
@@ -26,7 +27,7 @@ public class ButtonClickable : MonoBehaviour
             {
                 case ButtonType.MENU:
                     if(ui)
-                        ui.OnMenuPressed(panel);
+                        ui.OnMenuPressed(panel, panelLogs);
                     break;
                 case ButtonType.SCENE_SWAP:
                     if (gameObject.name == "SceneSample")

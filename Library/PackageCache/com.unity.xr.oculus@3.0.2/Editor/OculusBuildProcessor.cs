@@ -583,7 +583,7 @@ namespace UnityEditor.XR.Oculus
             // we remove it here since it will cause projects to fail Oculus cert
             // this shouldn't affect Bluetooth HID devices, which don't need the permission
             nodePath = "/manifest";
-            RemoveNameValueElementInTag(manifestDoc, nodePath, "uses-permission", "android:name", "android.permission.BLUETOOTH");
+            //RemoveNameValueElementInTag(manifestDoc, nodePath, "uses-permission", "android:name", "android.permission.BLUETOOTH");
 
             manifestDoc.Save(manifestPath);
         }
