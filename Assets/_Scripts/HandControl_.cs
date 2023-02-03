@@ -75,4 +75,6 @@ public class HandControl_ : MonoBehaviour
     {
         BluetoothHandler.OnDataReceived -= ReadCurls;
     }
+
+   
 }

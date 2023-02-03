@@ -77,6 +77,7 @@
     <Compile Include="Assets\_Scripts\ButtonClickable.cs" />
     <Compile Include="Assets\_Scripts\BubbleBehavior.cs" />
     <Compile Include="Assets\_Scripts\DummyBehavior.cs" />
+    <Compile Include="Assets\_Scripts\GrabbableLeftRight.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
